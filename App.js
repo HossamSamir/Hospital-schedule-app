@@ -57,8 +57,11 @@ export default class App extends Component {
       <View style={{ flex: 1 }} onLayout={this._onLayoutDidChange}>
         <Carousel
           style={this.state.size}
-          pageInfo
-          currentPage={1}
+          bullets={true}
+          autoplay={false}
+          bulletStyle={{ borderColor: '#11284b', backgroundColor: 'transparent' }}
+          chosenBulletStyle={{ borderColor: '#11284b', backgroundColor: '#11284b' }}
+          bulletsContainerStyle={{ marginBottom: 50 }}
           onAnimateNextPage={(p) => console.log(p)}
         >
 
