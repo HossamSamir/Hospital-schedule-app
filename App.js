@@ -22,7 +22,9 @@ export default class App extends Component {
       size: { width, height },
       Hospitals: ['Hospital #1', 'Hospital #2', 'Hospital #3', 'Hospital #4', 'Hospital #5', 'Hospital #6', 'Hospital #7'],
       SelectedHos: '',
-      date:"2016-05-15"
+      date:"2016-05-15",
+      Departments: ['Chest', 'Cardiology', 'Diagnostic imaging', 'General surgery', 'Microbiology', 'Occupational therapy'],
+      SelectedDep: '',
     };
   }
 
@@ -31,7 +33,7 @@ export default class App extends Component {
     this.setState({ size: { width: layout.width, height: layout.height } });
   }
 
-  _Hopitals = (rownum) => {
+  _Hopitals = () => {
     return this.state.Hospitals.map((Hospital) => (
       <TouchableHighlight
          onPress={ () => {this.setState({ SelectedHos: Hospital })} }
@@ -47,6 +49,26 @@ export default class App extends Component {
            justifyContent: 'center'
           }}>
         <Text style={{ color: Hospital == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15,}}>{ Hospital }</Text>
+      </TouchableHighlight>
+    ))
+  }
+
+  _Departments = () => {
+    return this.state.Departments.map((Department) => (
+      <TouchableHighlight
+         onPress={ () => {this.setState({ SelectedDep: Department })} }
+         style={{
+           backgroundColor: Department == this.state.SelectedDep ? 'white' : '#11284b',
+           borderColor: '#11284b',
+           borderWidth: 3,
+           margin: 10,
+           padding: 18,
+           borderRadius: 15,
+           height: 50,
+           alignItems: 'center',
+           justifyContent: 'center'
+          }}>
+        <Text style={{ color: Department == this.state.SelectedDep ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15,}}>{ Department }</Text>
       </TouchableHighlight>
     ))
   }
@@ -73,13 +95,14 @@ export default class App extends Component {
             </View>
             <View style={{ flex: 1, backgroundColor: 'transparent', marginTop: 30, justifyContent: 'center', alignItems: 'center' }}>
               <Text style={{ fontSize: 28, color: '#11284b', fontWeight: 'bold' }}>Choose A Hospital</Text>
-              <ScrollView horizontal={true} style={{ marginTop: 20 }}>
+              <Text style={{ color: '#11284b', opacity: .8, fontWeight: 'bold' }}>Selected Hospital: {this.state.SelectedHos}</Text>
+              <ScrollView horizontal={true} style={{ marginTop: 30, backgroundColor: 'transparent' }}>
                  { this._Hopitals() }
               </ScrollView>
-              <Text style={{ marginTop: 30, color: '#11284b', fontWeight: 'bold' }}>Selected Hospital: {this.state.SelectedHos}</Text>
             </View>
           </View>
         </View>
+
 
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Image source={require('./assets/img/bg.png')} style={{ width: width, height: height, position: 'absolute' }} />
@@ -89,9 +112,7 @@ export default class App extends Component {
             </View>
             <View style={{ flex: 1, backgroundColor: 'transparent', marginTop: -200, justifyContent: 'center', alignItems: 'center' }}>
               <Text style={{ fontSize: 23, color: '#11284b', fontWeight: 'bold' }}>Choose A Date</Text>
-
-
-
+              <Text style={{ marginBottom: 30, color: '#11284b', fontWeight: 'bold', opacity: .9 }}>Selected Date: {this.state.date}</Text>
                 <DatePicker
                         style={{width: 200}}
                         date={this.state.date}
@@ -100,7 +121,7 @@ export default class App extends Component {
                         format="YYYY-MM-DD"
                         confirmBtnText="Confirm"
                         cancelBtnText="Cancel"
-                        onDateChange={ (date) => {this.setState({ date })} }
+                        onDateChange={ (date) => {this.setState({ date: date })} }
                         customStyles={{
                           dateIcon: {
                             position: 'absolute',
@@ -114,12 +135,11 @@ export default class App extends Component {
                         }}
                         onDateChange={(date) => {this.setState({date: date})}}
                       />
-
-                    <Text style={{ marginTop: 30, color: '#11284b', fontWeight: 'bold' }}>Selected Date: {this.state.date}</Text>
-
             </View>
           </View>
         </View>
+
+
 
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Image source={require('./assets/img/bg.png')} style={{ width: width, height: height, position: 'absolute' }} />
@@ -128,13 +148,15 @@ export default class App extends Component {
               <Image source={require('./assets/img/11.png')} style={{ width: 250, height: 210, resizeMode: 'stretch' }} />
             </View>
             <View style={{ flex: 1, backgroundColor: 'transparent', marginTop: 30, justifyContent: 'center', alignItems: 'center' }}>
-              <Text style={{ fontSize: 23, color: '#11284b', fontWeight: 'bold' }}>Choose A Category</Text>
-              <ScrollView horizontal={true}>
-                {this._Hopitals()}
+              <Text style={{ fontSize: 28, color: '#11284b', fontWeight: 'bold' }}>Choose A Department</Text>
+              <Text style={{ color: '#11284b', opacity: .8, fontWeight: 'bold' }}>Selected Department: {this.state.SelectedHos}</Text>
+              <ScrollView horizontal={true} style={{ marginTop: 30, backgroundColor: 'transparent' }}>
+                 { this._Departments() }
               </ScrollView>
             </View>
           </View>
         </View>
+
 
         </Carousel>
       </View>
