@@ -6,7 +6,8 @@ import {
   Image,
   ScrollView,
   Alert,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity
 } from 'react-native';
 import Carousel from 'react-native-looped-carousel';
 import DatePicker from 'react-native-datepicker';
@@ -83,7 +84,7 @@ export default class App extends Component {
           autoplay={false}
           bulletStyle={{ borderColor: '#11284b', backgroundColor: 'transparent' }}
           chosenBulletStyle={{ borderColor: '#11284b', backgroundColor: '#11284b' }}
-          bulletsContainerStyle={{ marginBottom: 50 }}
+          bulletsContainerStyle={{ marginBottom: 80 }}
           onAnimateNextPage={(p) => console.log(p)}
         >
 
@@ -148,13 +149,18 @@ export default class App extends Component {
               <Image source={require('./assets/img/11.png')} style={{ width: 250, height: 210, resizeMode: 'stretch' }} />
             </View>
             <View style={{ flex: 1, backgroundColor: 'transparent', marginTop: 30, justifyContent: 'center', alignItems: 'center' }}>
-              <Text style={{ fontSize: 28, color: '#11284b', fontWeight: 'bold' }}>Choose A Department</Text>
+              <Text style={{ fontSize: 24, color: '#11284b', fontWeight: 'bold' }}>Choose A Department</Text>
               <Text style={{ color: '#11284b', opacity: .8, fontWeight: 'bold' }}>Selected Department: {this.state.SelectedHos}</Text>
               <ScrollView horizontal={true} style={{ marginTop: 30, backgroundColor: 'transparent' }}>
                  { this._Departments() }
               </ScrollView>
             </View>
           </View>
+
+          <TouchableOpacity style={{ width: width, backgroundColor: '#11284b', alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20, padding: 10 }}>Search</Text>
+          </TouchableOpacity>
+
         </View>
 
 
