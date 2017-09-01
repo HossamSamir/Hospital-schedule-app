@@ -20,7 +20,6 @@ export default class Home extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       size: { width, height },
       Hospitals: [
@@ -38,9 +37,6 @@ export default class Home extends React.Component {
         ],
       ],
       SelectedHos: '',
-      date:"2016-05-15",
-      Departments: ['Chest', 'Cardiology', 'Diagnostic imaging', 'General surgery', 'Microbiology', 'Occupational therapy'],
-      SelectedDep: '',
     };
   }
 
@@ -73,7 +69,7 @@ export default class Home extends React.Component {
                  alignItems: 'center',
                  justifyContent: 'center'
                 }}>
-              <Text style={{ color: Hospital[0].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15,}}>{ Hospital[0].name }</Text>
+              <Text style={{ color: Hospital[0].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Hospital[0].name }</Text>
             </TouchableHighlight>
           </View>
 
@@ -93,7 +89,7 @@ export default class Home extends React.Component {
                  alignItems: 'center',
                  justifyContent: 'center'
                 }}>
-              <Text style={{ color: Hospital[1].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15,}}>{ Hospital[1].name }</Text>
+              <Text style={{ color: Hospital[1].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Hospital[1].name }</Text>
             </TouchableHighlight>
           </View>
         </View>
