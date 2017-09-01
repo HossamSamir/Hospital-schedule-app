@@ -12,8 +12,8 @@ import Results from './screens/Results'
 const AppNavigations = StackNavigator({
   Hospitals: {screen: Hospitals},
   Departments: {screen: Departments},
-  Results: {screen: Results},
   SelectedDate: {screen: SelectedDate},
+  Results: {screen: Results},
 });
 
 

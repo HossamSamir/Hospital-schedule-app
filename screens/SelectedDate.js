@@ -84,7 +84,14 @@ export default class SelectedDate extends React.Component {
                     arrowColor: '#11284b'
                   }}
                 />
-              <TouchableHighlight onPress={() => console.log(this.state.SelectedDate)} style={{ backgroundColor: '#11284b', width: width, }}>
+              <TouchableHighlight
+                onPress={() => {
+                this.props.navigation.navigate('Results', {
+                  Hospital: this.props.navigation.state.params.Hospital,
+                  Department: this.props.navigation.state.params.Department,
+                  Date: this.state.SelectedDate
+                })}}
+                style={{ backgroundColor: '#11284b', width: width, }}>
                 <Text style={{ fontSize: 30, color: 'white', padding: 10, textAlign: 'center', fontWeight: 'bold' }}>
                   Search
                 </Text>

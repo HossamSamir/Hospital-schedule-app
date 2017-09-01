@@ -68,14 +68,15 @@ export default class Results extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, marginTop: 50 }} onLayout={this._onLayoutDidChange}>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
+        <Text>
+          Selected Hospital:
+            1.name => {this.props.navigation.state.params.Hospital.name + "\n"}
+            2. ID => {this.props.navigation.state.params.Hospital.id + "\n\n"}
+          Selected Department:
+            1. name => {this.props.navigation.state.params.Department.name + "\n"}
+            1. ID => {this.props.navigation.state.params.Department.id + "\n\n"}
+          Selected Date: {this.props.navigation.state.params.Date}
+        </Text>
       </View>
     );
   }

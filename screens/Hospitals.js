@@ -57,7 +57,7 @@ export default class Hospitals extends React.Component {
             <TouchableHighlight
                onPress={ () => {
                  this.setState({ SelectedHos: Hospital[0].name })
-                 this.props.navigation.navigate('Departments', { name: Hospital[0].name })
+                 this.props.navigation.navigate('Departments', { Hospital: Hospital[0]})
                }}
                style={{
                  backgroundColor: Hospital[0].name == this.state.SelectedHos ? 'white' : '#11284b',
@@ -77,7 +77,7 @@ export default class Hospitals extends React.Component {
             <TouchableHighlight
                onPress={ () => {
                  this.setState({ SelectedHos: Hospital[1].name })
-                 this.props.navigation.navigate('Departments', { name: Hospital[1].name })
+                 this.props.navigation.navigate('Departments', { Hospital: Hospital[1] })
                }}
                style={{
                  backgroundColor: Hospital[1].name == this.state.SelectedHos ? 'white' : '#11284b',
