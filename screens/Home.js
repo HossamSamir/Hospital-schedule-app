@@ -113,7 +113,7 @@ export default class Home extends React.Component {
             </View>
             <View style={{ flex: 1, backgroundColor: 'transparent', marginTop: 30, justifyContent: 'center', alignItems: 'center' }}>
               <Text style={{ fontSize: 28, color: '#11284b', fontWeight: 'bold' }}>Choose A Hospital</Text>
-              <Text style={{ color: '#11284b', opacity: .8, fontWeight: 'bold' }}>Selected Hospital: {this.state.SelectedHos}</Text>
+              <Text style={{ color: '#11284b', opacity: .8, fontWeight: 'bold' }}>Scroll down for more</Text>
               <ScrollView style={{ flex: 1, marginTop: 30, backgroundColor: 'transparent', width }}>
 
                 {this._Hopitals()}
