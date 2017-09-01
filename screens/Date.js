@@ -16,7 +16,7 @@ import {
 
 const { width, height } = Dimensions.get('window');
 
-export default class Date extends React.Component {
+export default class Data extends React.Component {
 
   constructor(props) {
     super(props);
@@ -72,7 +72,7 @@ export default class Date extends React.Component {
           <Image source={require('../assets/img/bg.png')} style={{ width: width, height: height, position: 'absolute' }} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%', }}>
             <View style={{ flex: .8, backgroundColor: 'transparent' }}>
-              <Image source={require('../assets/img/1.png')} style={{ width: 250, height: 210, resizeMode: 'stretch' }} />
+              <Image source={require('../assets/img/3.png')} style={{ width: 250, height: 210, resizeMode: 'stretch' }} />
             </View>
             <View style={{ flex: 1, backgroundColor: 'transparent', marginTop: 30, justifyContent: 'center', alignItems: 'center' }}>
               <Text style={{ fontSize: 28, color: '#11284b', fontWeight: 'bold' }}>Choose A Hospital</Text>
