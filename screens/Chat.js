@@ -16,7 +16,7 @@ import {
 
 const { width, height } = Dimensions.get('window');
 
-export default class Three extends React.Component {
+export default class Chat extends React.Component {
 
   constructor(props) {
     super(props);
@@ -46,7 +46,7 @@ export default class Three extends React.Component {
          key={Hospital.id}
          onPress={ () => {
            this.setState({ SelectedHos: Hospital.name })
-           this.props.navigation.navigate('Chat', { name: Hospital.name })
+           this.props.navigation.navigate('Three', { name: Hospital.name })
          }}
          style={{
            backgroundColor: Hospital.name == this.state.SelectedHos ? 'white' : '#11284b',
@@ -68,14 +68,23 @@ export default class Three extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, marginTop: 50 }} onLayout={this._onLayoutDidChange}>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
-        <Text>search Results</Text>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Image source={require('../assets/img/bg.png')} style={{ width: width, height: height, position: 'absolute' }} />
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%', }}>
+            <View style={{ flex: .8, backgroundColor: 'transparent' }}>
+              <Image source={require('../assets/img/1.png')} style={{ width: 250, height: 210, resizeMode: 'stretch' }} />
+            </View>
+            <View style={{ flex: 1, backgroundColor: 'transparent', marginTop: 30, justifyContent: 'center', alignItems: 'center' }}>
+              <Text style={{ fontSize: 28, color: '#11284b', fontWeight: 'bold' }}>Choose A Hospital</Text>
+              <Text style={{ color: '#11284b', opacity: .8, fontWeight: 'bold' }}>Selected Hospital: {this.state.SelectedHos}</Text>
+              <ScrollView horizontal={true} style={{ marginTop: 30, backgroundColor: 'transparent' }}>
+
+                {this._Hopitals()}
+
+              </ScrollView>
+            </View>
+          </View>
+        </View>
       </View>
     );
   }
