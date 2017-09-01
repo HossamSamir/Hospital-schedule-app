@@ -6,14 +6,14 @@ import {
 
 import Hospitals from './screens/Hospitals'
 import Departments from './screens/Departments'
-import SelectData from './screens/SelectData'
+import SelectedDate from './screens/SelectedDate'
 import Results from './screens/Results'
 
 const AppNavigations = StackNavigator({
-  SelectData: {screen: SelectData},
   Hospitals: {screen: Hospitals},
   Departments: {screen: Departments},
   Results: {screen: Results},
+  SelectedDate: {screen: SelectedDate},
 });
 
 

@@ -57,7 +57,7 @@ export default class Departments extends React.Component {
             <TouchableHighlight
                onPress={ () => {
                  this.setState({ SelectedDep: Department[0].name })
-                 this.props.navigation.navigate('SelectData', { name: Department[0].name })
+                 this.props.navigation.navigate('SelectedDate', { name: Department[0].name })
                }}
                style={{
                  backgroundColor: Department[0].name == this.state.SelectedDep ? 'white' : '#11284b',
@@ -77,7 +77,7 @@ export default class Departments extends React.Component {
             <TouchableHighlight
                onPress={ () => {
                  this.setState({ SelectedDep: Department[1].name })
-                 this.props.navigation.navigate('SelectData', { name: Department[1].name })
+                 this.props.navigation.navigate('SelectedDate', { name: Department[1].name })
                }}
                style={{
                  backgroundColor: Department[1].name == this.state.SelectedDep ? 'white' : '#11284b',
