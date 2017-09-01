@@ -16,7 +16,7 @@ import {
 
 const { width, height } = Dimensions.get('window');
 
-export default class Three extends React.Component {
+export default class Date extends React.Component {
 
   constructor(props) {
     super(props);

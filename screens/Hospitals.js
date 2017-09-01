@@ -16,7 +16,7 @@ import {
 
 const { width, height } = Dimensions.get('window');
 
-export default class Home extends React.Component {
+export default class Hospitals extends React.Component {
 
   constructor(props) {
     super(props);
@@ -57,7 +57,7 @@ export default class Home extends React.Component {
             <TouchableHighlight
                onPress={ () => {
                  this.setState({ SelectedHos: Hospital[0].name })
-                 this.props.navigation.navigate('Chat', { name: Hospital[0].name })
+                 this.props.navigation.navigate('Departments', { name: Hospital[0].name })
                }}
                style={{
                  backgroundColor: Hospital[0].name == this.state.SelectedHos ? 'white' : '#11284b',
@@ -77,7 +77,7 @@ export default class Home extends React.Component {
             <TouchableHighlight
                onPress={ () => {
                  this.setState({ SelectedHos: Hospital[1].name })
-                 this.props.navigation.navigate('Chat', { name: Hospital[1].name })
+                 this.props.navigation.navigate('Departments', { name: Hospital[1].name })
                }}
                style={{
                  backgroundColor: Hospital[1].name == this.state.SelectedHos ? 'white' : '#11284b',

@@ -4,15 +4,15 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
-import Home from './screens/Home'
-import Chat from './screens/Chat'
-import Three from './screens/Three'
+import Hospitals from './screens/Hospitals'
+import Departments from './screens/Departments'
+import Date from './screens/Date'
 import Results from './screens/Results'
 
 const AppNavigations = StackNavigator({
-  Home: {screen: Home},
-  Chat: {screen: Chat},
-  Three: {screen: Three},
+  Hospitals: {screen: Hospitals},
+  Departments: {screen: Departments},
+  Date: {screen: Date},
   Results: {screen: Results},
 });
 
