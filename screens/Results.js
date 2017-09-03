@@ -13,6 +13,8 @@ import {
 import {
   StackNavigator,
 } from 'react-navigation';
+import Timeline from 'react-native-timeline-listview';
+
 
 const { width, height } = Dimensions.get('window');
 
@@ -28,6 +30,18 @@ export default class Results extends React.Component {
       date:"2016-05-15",
       Departments: ['Chest', 'Cardiology', 'Diagnostic imaging', 'General surgery', 'Microbiology', 'Occupational therapy'],
       SelectedDep: '',
+      data: [
+
+        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #1</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+
+        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #2</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+
+        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #3</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+
+        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #4</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+
+        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #5</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+      ]
     };
   }
 
@@ -40,34 +54,14 @@ export default class Results extends React.Component {
     header: null
   };
 
-  _Hopitals = () => {
-    return this.state.Hospitals.map((Hospital) => (
-      <TouchableHighlight
-         key={Hospital.id}
-         onPress={ () => {
-           this.setState({ SelectedHos: Hospital.name })
-           this.props.navigation.navigate('Chat', { name: Hospital.name })
-         }}
-         style={{
-           backgroundColor: Hospital.name == this.state.SelectedHos ? 'white' : '#11284b',
-           borderColor: '#11284b',
-           borderWidth: 3,
-           margin: 10,
-           padding: 18,
-           borderRadius: 15,
-           height: 50,
-           alignItems: 'center',
-           justifyContent: 'center'
-          }}>
-        <Text style={{ color: Hospital.name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15,}}>{ Hospital.name }</Text>
-      </TouchableHighlight>
-    ))
-  }
 
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={{ flex: 1, marginTop: 50 }} onLayout={this._onLayoutDidChange}>
+      <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
+        <Image source={require('../assets/img/bg-icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
+
+      <View style={{ marginTop: 20 }}>
         <Text>
           Selected Hospital:
             1.name => {this.props.navigation.state.params.Hospital.name + "\n"}
@@ -77,6 +71,10 @@ export default class Results extends React.Component {
             1. ID => {this.props.navigation.state.params.Department.id + "\n\n"}
           Selected Date: {this.props.navigation.state.params.Date}
         </Text>
+      </View>
+
+      <Timeline data={ this.state.data } />
+
       </View>
     );
   }
