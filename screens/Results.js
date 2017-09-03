@@ -15,7 +15,15 @@ import {
 } from 'react-navigation';
 import Timeline from 'react-native-timeline-listview';
 
-
+// <Text>
+//   Selected Hospital:
+//     1.name => {this.props.navigation.state.params.Hospital.name + "\n"}
+//     2. ID => {this.props.navigation.state.params.Hospital.id + "\n\n"}
+//   Selected Department:
+//     1. name => {this.props.navigation.state.params.Department.name + "\n"}
+//     1. ID => {this.props.navigation.state.params.Department.id + "\n\n"}
+//   Selected Date: {this.props.navigation.state.params.Date}
+// </Text>
 const { width, height } = Dimensions.get('window');
 
 export default class Results extends React.Component {
@@ -32,15 +40,146 @@ export default class Results extends React.Component {
       SelectedDep: '',
       data: [
 
-        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #1</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+        // Doctor
+        {
+          time: '09:00',
+          title: (
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate('Profile', {})
+              }}
+              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
+              <View style={{ flex: 1 }}>
+                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
+                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
+              </View>
+              <View style={{flex: 1,}}>
+                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
+              </View>
+            </TouchableOpacity>
+          ),
+        },
 
-        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #2</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+        // Doctor
+        {
+          time: '09:00',
+          title: (
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate('Profile', {})
+              }}
+              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
+              <View style={{ flex: 1 }}>
+                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
+                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
+              </View>
+              <View style={{flex: 1,}}>
+                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
+              </View>
+            </TouchableOpacity>
+          ),
+        },
 
-        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #3</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+        // Doctor
+        {
+          time: '09:00',
+          title: (
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate('Profile', {})
+              }}
+              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
+              <View style={{ flex: 1 }}>
+                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
+                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
+              </View>
+              <View style={{flex: 1,}}>
+                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
+              </View>
+            </TouchableOpacity>
+          ),
+        },
 
-        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #4</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+        // Doctor
+        {
+          time: '09:00',
+          title: (
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate('Profile', {})
+              }}
+              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
+              <View style={{ flex: 1 }}>
+                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
+                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
+              </View>
+              <View style={{flex: 1,}}>
+                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
+              </View>
+            </TouchableOpacity>
+          ),
+        },
 
-        {time: '09:00', title: (<Text style={{backgroundColor: 'transparent'}}>Doctor #5</Text>), description: (<Text style={{backgroundColor: 'transparent'}}>+2123456789</Text>), },
+        // Doctor
+        {
+          time: '09:00',
+          title: (
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate('Profile', {})
+              }}
+              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
+              <View style={{ flex: 1 }}>
+                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
+                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
+              </View>
+              <View style={{flex: 1,}}>
+                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
+              </View>
+            </TouchableOpacity>
+          ),
+        },
+
+        // Doctor
+        {
+          time: '09:00',
+          title: (
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate('Profile', {})
+              }}
+              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
+              <View style={{ flex: 1 }}>
+                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
+                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
+              </View>
+              <View style={{flex: 1,}}>
+                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
+              </View>
+            </TouchableOpacity>
+          ),
+        },
+
+        // Doctor
+        {
+          time: '09:00',
+          title: (
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate('Profile', {})
+              }}
+              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
+              <View style={{ flex: 1 }}>
+                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
+                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
+              </View>
+              <View style={{flex: 1,}}>
+                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
+              </View>
+            </TouchableOpacity>
+          ),
+        },
+
       ]
     };
   }
@@ -61,19 +200,25 @@ export default class Results extends React.Component {
       <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
         <Image source={require('../assets/img/bg-icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
 
-      <View style={{ marginTop: 20 }}>
-        <Text>
-          Selected Hospital:
-            1.name => {this.props.navigation.state.params.Hospital.name + "\n"}
-            2. ID => {this.props.navigation.state.params.Hospital.id + "\n\n"}
-          Selected Department:
-            1. name => {this.props.navigation.state.params.Department.name + "\n"}
-            1. ID => {this.props.navigation.state.params.Department.id + "\n\n"}
-          Selected Date: {this.props.navigation.state.params.Date}
-        </Text>
+      <View style={{ }}>
+        <Image source={require('../assets/img/results.png')} style={{ width, height: 200, position: 'absolute'}} />
+        <View style={{ backgroundColor: 'transparent', width, marginTop: 30, marginLeft: 30, height: 180 }}>
+          <Text style={{ color: 'white', fontSize: 60, }}>
+            8
+            <Text style={{ color: 'white', fontSize: 30, }}>  Monday</Text>
+          </Text>
+          <Text style={{ color: 'white', fontSize: 30, marginLeft: 13 }}>Chest</Text>
+        </View>
       </View>
 
-      <Timeline data={ this.state.data } />
+      <Timeline
+        innerCircle={'dot'}
+        dotColor='#fcdb6d'
+        circleColor='#1e537d'
+        lineColor='#1e537d'
+        lineWidth={4}
+        timeStyle={{borderWidth: 2, borderColor: '#1e537d', color: '#1e537d', fontWeight: 'bold', borderRadius: 10, padding: 5, textAlign: 'center'}}
+        data={ this.state.data } />
 
       </View>
     );
@@ -83,7 +228,7 @@ export default class Results extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },

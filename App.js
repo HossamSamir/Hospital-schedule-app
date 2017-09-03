@@ -9,6 +9,7 @@ import Hospitals from './screens/Hospitals'
 import Departments from './screens/Departments'
 import SelectedDate from './screens/SelectedDate'
 import Results from './screens/Results'
+import Profile from './screens/Profile'
 
 const AppNavigations = StackNavigator({
   About: {screen: About},
@@ -16,6 +17,7 @@ const AppNavigations = StackNavigator({
   Departments: {screen: Departments},
   SelectedDate: {screen: SelectedDate},
   Results: {screen: Results},
+  Profile: {screen: Profile},
 });
 
 
