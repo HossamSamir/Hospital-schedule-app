@@ -4,12 +4,14 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
+import About from './screens/About'
 import Hospitals from './screens/Hospitals'
 import Departments from './screens/Departments'
 import SelectedDate from './screens/SelectedDate'
 import Results from './screens/Results'
 
 const AppNavigations = StackNavigator({
+  About: {screen: About},
   Hospitals: {screen: Hospitals},
   Departments: {screen: Departments},
   SelectedDate: {screen: SelectedDate},
