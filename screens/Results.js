@@ -30,157 +30,29 @@ export default class Results extends React.Component {
 
   constructor(props) {
     super(props);
-
+    this.renderDetail = this.renderDetail.bind(this)
+    this.data = [
+      {
+        time: '09:00',
+        title: 'Doctor #1',
+        description: '+20123456789',
+        imageUrl: 'https://scontent.faly1-1.fna.fbcdn.net/v/t34.0-12/21325892_1948845228737299_1620304484_n.png?oh=3e362ce657d9ede1294b56e17546f7ce&oe=59AF337C'
+      },
+      {
+        time: '09:00',
+        title: 'Doctor #1',
+        description: '+20123456789',
+        imageUrl: 'https://scontent.faly1-1.fna.fbcdn.net/v/t34.0-12/21325892_1948845228737299_1620304484_n.png?oh=3e362ce657d9ede1294b56e17546f7ce&oe=59AF337C'
+      },
+      {
+        time: '09:00',
+        title: 'Doctor #1',
+        description: '+20123456789',
+        imageUrl: 'https://scontent.faly1-1.fna.fbcdn.net/v/t34.0-12/21325892_1948845228737299_1620304484_n.png?oh=3e362ce657d9ede1294b56e17546f7ce&oe=59AF337C'
+      },
+    ]
     this.state = {
       size: { width, height },
-      Hospitals: [{name: 'Hospital #1', id: 1}, {name: 'Hospital #2', id: 2}, {name: 'Hospital #3', id: 3}, {name: 'Hospital #4', id: 4}, {name: 'Hospital #5', id: 5}, {name: 'Hospital #6', id: 6}, {name: 'Hospital #7', id: 7}],
-      SelectedHos: '',
-      date:"2016-05-15",
-      Departments: ['Chest', 'Cardiology', 'Diagnostic imaging', 'General surgery', 'Microbiology', 'Occupational therapy'],
-      SelectedDep: '',
-      data: [
-
-        // Doctor
-        {
-          time: '09:00',
-          title: (
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate('Profile', {})
-              }}
-              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
-              <View style={{ flex: 1 }}>
-                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
-                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
-              </View>
-              <View style={{flex: 1,}}>
-                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
-              </View>
-            </TouchableOpacity>
-          ),
-        },
-
-        // Doctor
-        {
-          time: '09:00',
-          title: (
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate('Profile', {})
-              }}
-              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
-              <View style={{ flex: 1 }}>
-                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
-                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
-              </View>
-              <View style={{flex: 1,}}>
-                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
-              </View>
-            </TouchableOpacity>
-          ),
-        },
-
-        // Doctor
-        {
-          time: '09:00',
-          title: (
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate('Profile', {})
-              }}
-              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
-              <View style={{ flex: 1 }}>
-                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
-                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
-              </View>
-              <View style={{flex: 1,}}>
-                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
-              </View>
-            </TouchableOpacity>
-          ),
-        },
-
-        // Doctor
-        {
-          time: '09:00',
-          title: (
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate('Profile', {})
-              }}
-              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
-              <View style={{ flex: 1 }}>
-                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
-                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
-              </View>
-              <View style={{flex: 1,}}>
-                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
-              </View>
-            </TouchableOpacity>
-          ),
-        },
-
-        // Doctor
-        {
-          time: '09:00',
-          title: (
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate('Profile', {})
-              }}
-              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
-              <View style={{ flex: 1 }}>
-                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
-                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
-              </View>
-              <View style={{flex: 1,}}>
-                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
-              </View>
-            </TouchableOpacity>
-          ),
-        },
-
-        // Doctor
-        {
-          time: '09:00',
-          title: (
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate('Profile', {})
-              }}
-              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
-              <View style={{ flex: 1 }}>
-                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
-                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
-              </View>
-              <View style={{flex: 1,}}>
-                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
-              </View>
-            </TouchableOpacity>
-          ),
-        },
-
-        // Doctor
-        {
-          time: '09:00',
-          title: (
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate('Profile', {})
-              }}
-              style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
-              <View style={{ flex: 1 }}>
-                <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>Doctor #1</Text>
-                <Text style={{backgroundColor: 'transparent', fontSize: 14}}>+0123456789</Text>
-              </View>
-              <View style={{flex: 1,}}>
-                <Image source={require('../assets/img/go.png')} style={{ width: 50, height: 50,}} />
-              </View>
-            </TouchableOpacity>
-          ),
-        },
-
-      ]
     };
   }
 
@@ -193,6 +65,28 @@ export default class Results extends React.Component {
     header: null
   };
 
+
+  renderDetail(rowData, sectionID, rowID) {
+    let title = <Text>{rowData.title}</Text>
+    let img = <Image source={{uri: rowData.imageUrl}} style={{ width: 50, height: 50,}}/>
+    let desc = <Text>{rowData.description}</Text>
+
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          this.props.navigation.navigate('Profile', {})
+        }}
+        style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
+        <View style={{ flex: 1 }}>
+          <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>{title}</Text>
+          <Text style={{backgroundColor: 'transparent', fontSize: 14}}>{desc}</Text>
+        </View>
+        <View style={{flex: 1,}}>
+          {img}
+        </View>
+      </TouchableOpacity>
+    )
+  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -218,7 +112,8 @@ export default class Results extends React.Component {
         lineColor='#1e537d'
         lineWidth={4}
         timeStyle={{borderWidth: 2, borderColor: '#1e537d', color: '#1e537d', fontWeight: 'bold', borderRadius: 10, padding: 5, textAlign: 'center'}}
-        data={ this.state.data } />
+        renderDetail={this.renderDetail}
+        data={this.data} />
 
       </View>
     );

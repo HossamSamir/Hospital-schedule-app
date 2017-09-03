@@ -52,15 +52,13 @@ export default class Profile extends React.Component {
       <ScrollView style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
         <Image source={require('../assets/img/bg-icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
 
-      <View style={{ }}>
         <Image source={require('../assets/img/header.png')} style={{ width, height: 200, position: 'absolute'}} />
-        <View style={{ backgroundColor: 'transparent', width, height: 200, alignItems: 'center' }}>
-          <Image source={require('../assets/img/avatar.png')} style={{ width: 140, height: 140, position: 'absolute', marginTop: 130}} />
+        <View style={{ backgroundColor: 'transparent', width, height: 350, alignItems: 'center' }}>
+          <Image source={require('../assets/img/avatar.png')} style={{ width: 200, height: 200, position: 'absolute', marginTop: 100}} />
         </View>
-      </View>
 
       {/* Name */}
-        <View style={{ flex: 1, flexDirection: 'row', marginTop: 100, marginHorizontal: 20, alignItems: 'center', justifyContent: 'center'}}>
+        <View style={{ flex: 1, flexDirection: 'row', marginHorizontal: 20, alignItems: 'center', justifyContent: 'center'}}>
           <View style={{ flex: .3 }}>
             <Image style={{ height: 40, width: 40, }} source={require('../assets/img/user.png')} />
           </View>

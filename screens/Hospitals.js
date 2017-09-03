@@ -18,25 +18,38 @@ const { width, height } = Dimensions.get('window');
 
 export default class Hospitals extends React.Component {
 
+  componentDidMount() {
+    this.fetchHospitals();
+  }
+  fetchHospitals() {
+    fetch('https://oncall-admin.herokuapp.com/api/hospitals')
+    .then((res) => res.json())
+    .then((resJson) => {
+      resJson.map((hospital) => {
+        if (hospital[1].id != null) {
+          this.state.Hospitals.push(hospital)
+        } else {
+          this.setState({theOddOne: hospital[0]})
+          console.log(this.state.theOddOne);
+        }
+      })
+    })
+    .then(() => {
+      this.setState({doneFetching: true})
+      // this.state.Hospitals.map((x) => {
+      //   console.log(x[0].name);
+      //   console.log(x[1].name);
+      // })
+    })
+  }
   constructor(props) {
     super(props);
     this.state = {
       size: { width, height },
-      Hospitals: [
-        [
-          {name: 'Hospital #1', id: 1},
-          {name: 'Hospital #2', id: 2}
-        ],
-        [
-          {name: 'Hospital #3', id: 3},
-          {name: 'Hospital #4', id: 4}
-        ],
-        [
-          {name: 'Hospital #5', id: 5},
-          {name: 'Hospital #6', id: 6}
-        ],
-      ],
+      Hospitals: [],
+      theOddOne: null,
       SelectedHos: '',
+      doneFetching: false
     };
   }
 
@@ -50,17 +63,71 @@ export default class Hospitals extends React.Component {
   };
 
   _Hopitals = () => {
-    return this.state.Hospitals.map((Hospital, i) => {
+    if (this.state.doneFetching == false) {
       return (
-        <View key={Hospital[0].id} style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-          <View style={{ flex: 1  }}>
+        <Text style={{ textAlign: 'center' }}>Loading...</Text>
+      )
+    } else {
+      return this.state.Hospitals.map((Hospital, i) => {
+        return (
+          <View key={Hospital[0].id} style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
+              <TouchableHighlight
+                 onPress={ () => {
+                   this.setState({ SelectedHos: Hospital[0].name })
+                   this.props.navigation.navigate('Departments', { Hospital: Hospital[0]})
+                 }}
+                 style={{
+                   backgroundColor: Hospital[0].name == this.state.SelectedHos ? 'white' : '#11284b',
+                   borderColor: '#11284b',
+                   borderWidth: 3,
+                   margin: 10,
+                   padding: 18,
+                   borderRadius: 15,
+                   alignItems: 'center',
+                   justifyContent: 'center'
+                  }}>
+                <Text style={{ color: Hospital[0].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Hospital[0].name }</Text>
+              </TouchableHighlight>
+            </View>
+
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
+              <TouchableHighlight
+                 onPress={ () => {
+                   this.setState({ SelectedHos: Hospital[1].name })
+                   this.props.navigation.navigate('Departments', { Hospital: Hospital[1]})
+                 }}
+                 style={{
+                   backgroundColor: Hospital[1].name == this.state.SelectedHos ? 'white' : '#11284b',
+                   borderColor: '#11284b',
+                   borderWidth: 3,
+                   margin: 10,
+                   padding: 18,
+                   borderRadius: 15,
+                   alignItems: 'center',
+                   justifyContent: 'center'
+                  }}>
+                <Text style={{ color: Hospital[1].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Hospital[1].name }</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        )
+      })
+    }
+  }
+
+  _HopitalsIsOdd = () => {
+    if (this.state.doneFetching == true && this.state.theOddOne != null) {
+      return (
+        <View key={this.state.theOddOne.id} style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
             <TouchableHighlight
                onPress={ () => {
-                 this.setState({ SelectedHos: Hospital[0].name })
-                 this.props.navigation.navigate('Departments', { Hospital: Hospital[0]})
+                 this.setState({ SelectedHos: this.state.theOddOne.name })
+                 this.props.navigation.navigate('Departments', { Hospital: this.state.theOddOne})
                }}
                style={{
-                 backgroundColor: Hospital[0].name == this.state.SelectedHos ? 'white' : '#11284b',
+                 backgroundColor: this.state.theOddOne.name == this.state.SelectedHos ? 'white' : '#11284b',
                  borderColor: '#11284b',
                  borderWidth: 3,
                  margin: 10,
@@ -69,32 +136,15 @@ export default class Hospitals extends React.Component {
                  alignItems: 'center',
                  justifyContent: 'center'
                 }}>
-              <Text style={{ color: Hospital[0].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Hospital[0].name }</Text>
+              <Text style={{ color: this.state.theOddOne.name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ this.state.theOddOne.name }</Text>
             </TouchableHighlight>
           </View>
 
           <View style={{ flex: 1  }}>
-            <TouchableHighlight
-               onPress={ () => {
-                 this.setState({ SelectedHos: Hospital[1].name })
-                 this.props.navigation.navigate('Departments', { Hospital: Hospital[1] })
-               }}
-               style={{
-                 backgroundColor: Hospital[1].name == this.state.SelectedHos ? 'white' : '#11284b',
-                 borderColor: '#11284b',
-                 borderWidth: 3,
-                 margin: 10,
-                 padding: 18,
-                 borderRadius: 15,
-                 alignItems: 'center',
-                 justifyContent: 'center'
-                }}>
-              <Text style={{ color: Hospital[1].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Hospital[1].name }</Text>
-            </TouchableHighlight>
           </View>
         </View>
       )
-    })
+    }
   }
 
   render() {
@@ -113,6 +163,7 @@ export default class Hospitals extends React.Component {
               <ScrollView style={{ flex: 1, marginTop: 30, backgroundColor: 'transparent', width }}>
 
                 {this._Hopitals()}
+                {this._HopitalsIsOdd()}
 
               </ScrollView>
             </View>
