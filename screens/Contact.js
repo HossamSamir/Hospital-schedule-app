@@ -72,8 +72,8 @@ export default class Contact extends React.Component {
                  Alert.alert('Thanks ' + this.state.name, 'we will responde as soon as possible')
                  navigate('Home')
                }}
-                style={{ backgroundColor: '#11284b', borderRadius: 20, width: '50%' }}>
-               <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center', padding: 18 }}>Send</Text>
+                style={{ }}>
+               <Text style={{ backgroundColor: '#11284b', borderRadius: 20, color: 'white', fontWeight: 'bold', textAlign: 'center', padding: 18 }}>Send</Text>
              </TouchableOpacity>
            </ScrollView>
 

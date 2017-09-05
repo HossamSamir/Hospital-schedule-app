@@ -18,25 +18,28 @@ const { width, height } = Dimensions.get('window');
 
 export default class Departments extends React.Component {
 
+  componentDidMount() {
+    this.fetchDepartments();
+  }
+  fetchDepartments() {
+    fetch('https://oncall-admin.herokuapp.com/api/sections?hospital_id=' + this.props.navigation.state.params.Hospital.id)
+    .then((res) => res.json())
+    .then((resJson) => {
+      resJson.map((Department) => {
+        this.state.Departments.push(Department)
+      })
+    })
+    .then(() => {
+      this.setState({doneFetching: true})
+    })
+  }
   constructor(props) {
     super(props);
     this.state = {
       size: { width, height },
-      Departments: [
-        [
-          {name: 'Department #1', id: 1},
-          {name: 'Department #2', id: 2}
-        ],
-        [
-          {name: 'Department #3', id: 3},
-          {name: 'Department #4', id: 4}
-        ],
-        [
-          {name: 'Department #5', id: 5},
-          {name: 'Department #6', id: 6}
-        ],
-      ],
+      Departments: [],
       SelectedDep: '',
+      doneFetching: false
     };
   }
 
@@ -50,58 +53,40 @@ export default class Departments extends React.Component {
   };
 
   _Departments = () => {
-    return this.state.Departments.map((Department, i) => {
+    if (this.state.doneFetching == false) {
       return (
-        <View key={Department[0].id} style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-          <View style={{ flex: 1  }}>
+        <Text style={{ textAlign: 'center' }}>Loading...</Text>
+      )
+    } else {
+      return this.state.Departments.map((Department) => {
+        return (
+          <View key={Department.id} style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginRight: 20 }}>
+            <Image style={{ flex: .2 }} source={require('../assets/img/dep.png')} style={{ width: 50, height: 50, marginHorizontal: 10}} />
             <TouchableHighlight
                onPress={ () => {
-                 this.setState({ SelectedDep: Department[0].name })
-                 this.props.navigation.navigate('SelectedDate', {
-                   Hospital: this.props.navigation.state.params.Hospital,
-                   Department: Department[0]
-                 })
+                 this.setState({ SelectedDep: Department.name })
+                 this.props.navigation.navigate('SelectedDate', { Department: Department})
                }}
                style={{
-                 backgroundColor: Department[0].name == this.state.SelectedDep ? 'white' : '#11284b',
+                 flex: 1,
+                 backgroundColor: Department.name == this.state.SelectedDep ? 'white' : '#11284b',
                  borderColor: '#11284b',
                  borderWidth: 3,
                  margin: 10,
-                 padding: 18,
-                 borderRadius: 15,
-                 alignItems: 'center',
-                 justifyContent: 'center',
-                }}>
-              <Text style={{ color: Department[0].name == this.state.SelectedDep ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Department[0].name }</Text>
-            </TouchableHighlight>
-          </View>
-
-          <View style={{ flex: 1  }}>
-            <TouchableHighlight
-              onPress={ () => {
-                this.setState({ SelectedDep: Department[1].name })
-                this.props.navigation.navigate('SelectedDate', {
-                  Hospital: this.props.navigation.state.params.Hospital,
-                  Department: Department[1]
-                })
-              }}
-               style={{
-                 backgroundColor: Department[1].name == this.state.SelectedDep ? 'white' : '#11284b',
-                 borderColor: '#11284b',
-                 borderWidth: 3,
-                 margin: 10,
+                 width: '80%',
                  padding: 18,
                  borderRadius: 15,
                  alignItems: 'center',
                  justifyContent: 'center'
                 }}>
-              <Text style={{ color: Department[1].name == this.state.SelectedDep ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Department[1].name }</Text>
+              <Text style={{ color: Department.name == this.state.SelectedDep ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Department.name }</Text>
             </TouchableHighlight>
           </View>
-        </View>
-      )
-    })
+        )
+      })
+    }
   }
+
 
   render() {
     const { navigate } = this.props.navigation;
