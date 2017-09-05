@@ -68,7 +68,11 @@ export default class Home extends React.Component {
            <Text style={{flex: 1, marginTop: 10, fontSize: 18, fontWeight: 'bold', color: '#1e537d'}}>About us</Text>
          </TouchableOpacity>
 
-         <TouchableOpacity style={{ flex: 1, backgroundColor: 'white', marginHorizontal: 18, marginVertical: 50,
+         <TouchableOpacity
+           onPress={() => {
+             navigate('Contact')
+           }}
+           style={{ flex: 1, backgroundColor: 'white', marginHorizontal: 18, marginVertical: 50,
            shadowColor: '#000',
            shadowOffset: { width: 0, height: 2 },
            shadowOpacity: 0.5,
