@@ -26,20 +26,11 @@ export default class Hospitals extends React.Component {
     .then((res) => res.json())
     .then((resJson) => {
       resJson.map((hospital) => {
-        if (hospital[1].id != null) {
-          this.state.Hospitals.push(hospital)
-        } else {
-          this.setState({theOddOne: hospital[0]})
-          console.log(this.state.theOddOne);
-        }
+        this.state.Hospitals.push(hospital)
       })
     })
     .then(() => {
       this.setState({doneFetching: true})
-      // this.state.Hospitals.map((x) => {
-      //   console.log(x[0].name);
-      //   console.log(x[1].name);
-      // })
     })
   }
   constructor(props) {
@@ -47,7 +38,6 @@ export default class Hospitals extends React.Component {
     this.state = {
       size: { width, height },
       Hospitals: [],
-      theOddOne: null,
       SelectedHos: '',
       doneFetching: false
     };
@@ -68,84 +58,35 @@ export default class Hospitals extends React.Component {
         <Text style={{ textAlign: 'center' }}>Loading...</Text>
       )
     } else {
-      return this.state.Hospitals.map((Hospital, i) => {
+      return this.state.Hospitals.map((Hospital) => {
         return (
-          <View key={Hospital[0].id} style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
-              <TouchableHighlight
-                 onPress={ () => {
-                   this.setState({ SelectedHos: Hospital[0].name })
-                   this.props.navigation.navigate('Departments', { Hospital: Hospital[0]})
-                 }}
-                 style={{
-                   backgroundColor: Hospital[0].name == this.state.SelectedHos ? 'white' : '#11284b',
-                   borderColor: '#11284b',
-                   borderWidth: 3,
-                   margin: 10,
-                   padding: 18,
-                   borderRadius: 15,
-                   alignItems: 'center',
-                   justifyContent: 'center'
-                  }}>
-                <Text style={{ color: Hospital[0].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Hospital[0].name }</Text>
-              </TouchableHighlight>
-            </View>
-
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
-              <TouchableHighlight
-                 onPress={ () => {
-                   this.setState({ SelectedHos: Hospital[1].name })
-                   this.props.navigation.navigate('Departments', { Hospital: Hospital[1]})
-                 }}
-                 style={{
-                   backgroundColor: Hospital[1].name == this.state.SelectedHos ? 'white' : '#11284b',
-                   borderColor: '#11284b',
-                   borderWidth: 3,
-                   margin: 10,
-                   padding: 18,
-                   borderRadius: 15,
-                   alignItems: 'center',
-                   justifyContent: 'center'
-                  }}>
-                <Text style={{ color: Hospital[1].name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Hospital[1].name }</Text>
-              </TouchableHighlight>
-            </View>
+          <View key={Hospital.id} style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginRight: 20 }}>
+            <Image style={{ flex: .2 }} source={require('../assets/img/h-icon.png')} style={{ width: 50, height: 50, marginHorizontal: 10}} />
+            <TouchableHighlight
+               onPress={ () => {
+                 this.setState({ SelectedHos: Hospital.name })
+                 this.props.navigation.navigate('Departments', { Hospital: Hospital})
+               }}
+               style={{
+                 flex: 1,
+                 backgroundColor: Hospital.name == this.state.SelectedHos ? 'white' : '#11284b',
+                 borderColor: '#11284b',
+                 borderWidth: 3,
+                 margin: 10,
+                 width: '80%',
+                 padding: 18,
+                 borderRadius: 15,
+                 alignItems: 'center',
+                 justifyContent: 'center'
+                }}>
+              <Text style={{ color: Hospital.name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ Hospital.name }</Text>
+            </TouchableHighlight>
           </View>
         )
       })
     }
   }
 
-  _HopitalsIsOdd = () => {
-    if (this.state.doneFetching == true && this.state.theOddOne != null) {
-      return (
-        <View key={this.state.theOddOne.id} style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
-            <TouchableHighlight
-               onPress={ () => {
-                 this.setState({ SelectedHos: this.state.theOddOne.name })
-                 this.props.navigation.navigate('Departments', { Hospital: this.state.theOddOne})
-               }}
-               style={{
-                 backgroundColor: this.state.theOddOne.name == this.state.SelectedHos ? 'white' : '#11284b',
-                 borderColor: '#11284b',
-                 borderWidth: 3,
-                 margin: 10,
-                 padding: 18,
-                 borderRadius: 15,
-                 alignItems: 'center',
-                 justifyContent: 'center'
-                }}>
-              <Text style={{ color: this.state.theOddOne.name == this.state.SelectedHos ? '#11284b' : 'white', fontWeight: 'bold', fontSize: 15, textAlign: 'center'}}>{ this.state.theOddOne.name }</Text>
-            </TouchableHighlight>
-          </View>
-
-          <View style={{ flex: 1  }}>
-          </View>
-        </View>
-      )
-    }
-  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -163,7 +104,6 @@ export default class Hospitals extends React.Component {
               <ScrollView style={{ flex: 1, marginTop: 30, backgroundColor: 'transparent', width }}>
 
                 {this._Hopitals()}
-                {this._HopitalsIsOdd()}
 
               </ScrollView>
             </View>
