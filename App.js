@@ -4,6 +4,7 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
+import Home from './screens/Home'
 import About from './screens/About'
 import Hospitals from './screens/Hospitals'
 import Departments from './screens/Departments'
@@ -12,6 +13,7 @@ import Results from './screens/Results'
 import Profile from './screens/Profile'
 
 const AppNavigations = StackNavigator({
+  Home: {screen: Home},
   About: {screen: About},
   Hospitals: {screen: Hospitals},
   Departments: {screen: Departments},

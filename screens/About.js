@@ -42,7 +42,7 @@ export default class About extends React.Component {
   }
 
   static navigationOptions = {
-    header: null
+    title: 'About us'
   };
 
 
@@ -51,9 +51,6 @@ export default class About extends React.Component {
     return (
       <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
         <Image source={require('../assets/img/bg-icons.png')} style={{ width, height, position: 'absolute' }} />
-        <TouchableOpacity style={{marginTop: 20, marginLeft: 10, position: 'absolute', zIndex: 2}} onPress={ () => this.setModalVisible(true) }>
-          <Image source={require('../assets/img/icon.png')} style={{ width: 45, height: 45, }} />
-        </TouchableOpacity>
         <View style={{ flex: 1 }}>
           <Image style={{ flex: .2 }} source={require('../assets/img/illustration.png')} style={{ width, height: 250, }} />
           <View style={{ flex: 2, alignItems: 'center' }}>
