@@ -85,8 +85,12 @@ export default class Home extends React.Component {
         </TouchableOpacity>
       </View>
 
-        <TouchableHighlight style={{ flex: .2, backgroundColor: '#11284b', justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20 }}>Get started</Text>
+        <TouchableHighlight
+          onPress={ () => {
+            navigate('Hospitals')
+          }}
+          style={{ flex: .2, backgroundColor: '#11284b', justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20, marginVertical: 8 }}>Get started</Text>
         </TouchableHighlight>
 
       </View>

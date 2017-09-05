@@ -49,7 +49,7 @@ export default class Contact extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
+      <View style={{ flex: 1, marginTop: 20 }} onLayout={this._onLayoutDidChange}>
         <Image source={require('../assets/img/bg-icons.png')} style={{ width, height, position: 'absolute' }} />
 
            <ScrollView style={{ marginHorizontal: 10 }}>
@@ -61,13 +61,16 @@ export default class Contact extends React.Component {
                underlineColorAndroid="transparent"/>
              <TextInput style={{ borderColor: '#11284b', borderWidth: 2, marginVertical: 7, borderRadius: 20, width: '100%', textAlign: 'center', height: 50, fontWeight: 'bold', color: '#11284b' }}
                onChangeText={(email) => this.setState({ email })}
+               underlineColorAndroid="transparent"
                placeholder="email" />
              <TextInput style={{ borderColor: '#11284b', borderWidth: 2, marginVertical: 7, borderRadius: 20, width: '100%', textAlign: 'center', height: 100, fontWeight: 'bold', color: '#11284b' }}
                onChangeText={(message) => this.setState({ message })}
-               placeholder="message" />
+               placeholder="message"
+               underlineColorAndroid="transparent"/>
              <TouchableOpacity
                onPress={ () => {
                  Alert.alert('Thanks ' + this.state.name, 'we will responde as soon as possible')
+                 navigate('Home')
                }}
                 style={{ backgroundColor: '#11284b', borderRadius: 20, width: '50%' }}>
                <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center', padding: 18 }}>Send</Text>
