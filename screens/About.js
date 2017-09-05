@@ -51,24 +51,22 @@ export default class About extends React.Component {
     return (
       <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
         <Image source={require('../assets/img/bg-icons.png')} style={{ width, height, position: 'absolute' }} />
-        <View style={{ flex: 1 }}>
-          <Image style={{ flex: .2 }} source={require('../assets/img/illustration.png')} style={{ width, height: 250, }} />
+        <ScrollView style={{ flex: 1 }}>
+          <Image style={{ flex: .2 }} source={require('../assets/img/illustration.png')} style={{ width, height: 190, }} />
           <View style={{ flex: 2, alignItems: 'center' }}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', marginVertical: 15 }}>About us</Text>
-            <ScrollView style={{ marginHorizontal: 30, flex: 1 }}>
-              <Text style={{ fontSize: 15, lineHeight: 20 }}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              <Text style={{ fontSize: 17, lineHeight: 25, marginHorizontal: 20, marginVertical: 20, fontWeight: 'bold', color: '#11284b' }}>
+                OnCall is a application which provides information about doctors Oncall in hospitals and facilitates easy access to doctors in all sections of the hospital. Also it presents  details about team on duty for each day. The goal is to reduce the time to search and reduce the cost of printing and distributing the papers. The application is available on the Apple and Android stores, The download is free.
+                This work is personal and does not belong to any organization.
+                Fees may be charged for uploading later.
+                To contact us send your request to join  the team or in case to add your hospital on our App , Please send  via the contact us button .
+                do not hestiate for any question , suggestion or request .
+                <Text>
+                  Best Regard,
+                  Team Work.
+                </Text>
               </Text>
-            </ScrollView>
-            <TouchableHighlight
-              onPress={() => {
-                this.props.navigation.navigate('Hospitals', {})
-              }}
-              style={{ flex: .4, justifyContent: 'center', alignItems: 'center', backgroundColor: '#11284b', width }}>
-              <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>Get started</Text>
-            </TouchableHighlight>
           </View>
-        </View>
+        </ScrollView>
 
 
         <Modal
