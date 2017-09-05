@@ -65,7 +65,7 @@ export default class Departments extends React.Component {
             <TouchableHighlight
                onPress={ () => {
                  this.setState({ SelectedDep: Department.name })
-                 this.props.navigation.navigate('SelectedDate', { Department: Department})
+                 this.props.navigation.navigate('SelectedDate', { Hospital: this.props.navigation.state.params.Hospital, Department: Department})
                }}
                style={{
                  flex: 1,

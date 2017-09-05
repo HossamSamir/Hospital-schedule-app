@@ -22,7 +22,8 @@ export default class SelectedDate extends React.Component {
     super(props);
     this.state = {
       size: { width, height },
-      SelectedDate: this._getCurrentDate()
+      SelectedDate: this._getCurrentDate(),
+      DayNum: null
     };
     this.onDayPress = this.onDayPress.bind(this);
   }
@@ -53,7 +54,8 @@ export default class SelectedDate extends React.Component {
 
   onDayPress(day) {
     this.setState({
-      SelectedDate: day.dateString
+      SelectedDate: day.dateString,
+      DayNum: day.day
     });
   }
 
@@ -89,7 +91,8 @@ export default class SelectedDate extends React.Component {
                 this.props.navigation.navigate('Results', {
                   Hospital: this.props.navigation.state.params.Hospital,
                   Department: this.props.navigation.state.params.Department,
-                  Date: this.state.SelectedDate
+                  Date: this.state.SelectedDate,
+                  DayNum: this.state.DayNum
                 })}}
                 style={{ backgroundColor: '#11284b', width: width, }}>
                 <Text style={{ fontSize: 30, color: 'white', padding: 10, textAlign: 'center', fontWeight: 'bold' }}>
