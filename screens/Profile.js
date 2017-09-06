@@ -75,6 +75,43 @@ export default class Profile extends React.Component {
     this.setState({ size: { width: layout.width, height: layout.height } });
   }
 
+  chooseImg(x) {
+    switch (x) {
+      case 'name':
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/name.png')} />
+        break;
+      case 'position':
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/position.png')} />
+        break;
+      case 'pager':
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/pager.png')} />
+        break;
+      case 'phone':
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/phone.png')} />
+        break;
+      case 'extension':
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/extension.png')} />
+        break;
+      case 'email':
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/email.png')} />
+        break;
+    }
+  }
+
+  filterData(x) {
+    if (this.state[x] != '') {
+      return (
+          <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{ flex: .3 }}>
+              {this.chooseImg(x)}
+            </View>
+            <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>
+              {this.state[x]}</Text>
+          </View>
+      )
+    }
+  }
+
   renderData() {
     if (this.state.doneFetching == false) {
       return (
@@ -82,64 +119,15 @@ export default class Profile extends React.Component {
       )
     } else {
       return (
-        <View>
+        <View style={{ marginBottom: 30 }}>
           {/* Name */}
-            <View style={{ flex: 1, flexDirection: 'row', marginHorizontal: 15, alignItems: 'center', justifyContent: 'center'}}>
-              <View style={{ flex: .3 }}>
-                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/user.png')} />
-              </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>
-                {this.state.name}</Text>
-            </View>
 
-            {/* position */}
-              <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center'}}>
-                <View style={{ flex: .3 }}>
-                  <Image style={{ height: 25, width: 25, }} source={require('../assets/img/b-card.png')} />
-                </View>
-                <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>
-                  {this.state.position}</Text>
-              </View>
-
-
-          {/* pager */}
-            <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center',}}>
-              <View style={{ flex: .3 }}>
-                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/pager.png')} />
-              </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>
-                {this.state.pager}
-              </Text>
-            </View>
-
-          {/* phone */}
-            <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center'}}>
-              <View style={{ flex: .3 }}>
-                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/phone-01.png')} />
-              </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>{this.state.phone}</Text>
-            </View>
-
-
-          {/* extension */}
-            <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center'}}>
-              <View style={{ flex: .3 }}>
-                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/phone.png')} />
-              </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>{this.state.extension}</Text>
-            </View>
-
-
-          {/* email */}
-            <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center', marginBottom: 30}}>
-              <View style={{ flex: .3 }}>
-                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/email.png')} />
-              </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>{this.state.email}</Text>
-            </View>
-
-
-
+            { this.filterData('name') }
+            { this.filterData('position') }
+            { this.filterData('pager') }
+            { this.filterData('phone') }
+            { this.filterData('extension') }
+            { this.filterData('email') }
 
         </View>
       )
