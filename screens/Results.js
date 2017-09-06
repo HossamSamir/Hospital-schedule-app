@@ -21,11 +21,17 @@ export default class Results extends React.Component {
 
   componentDidMount() {
     this.fetchDocs();
-    console.log(this.props.navigation.state.params.Department.id);
-    console.log(this.props.navigation.state.params.Hospital.id);
-    console.log(this.props.navigation.state.params.Date);
-    console.log('data end');
+    this.getDayName();
   }
+
+  getDayName() {
+    console.log('=================================');
+    console.log(this.props.navigation.state.params.Date);
+    var d = new Date(this.props.navigation.state.params.Date);
+    var dayName = this.state.week[d.getDay()];
+    this.setState({ DayToShow: dayName })
+  }
+
   fetchDocs() {
     fetch(
       `https://oncall-admin.herokuapp.com/api/search?section_id=${this.props.navigation.state.params.Department.id}&hospital_id=${this.props.navigation.state.params.Hospital.id}&date=${this.props.navigation.state.params.Date}`)
@@ -49,7 +55,9 @@ export default class Results extends React.Component {
     this.data = [];
     this.state = {
       size: { width, height },
-      doneFetching: false
+      doneFetching: false,
+      week: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      DayToShow: 'test'
     };
   }
 
@@ -88,6 +96,8 @@ export default class Results extends React.Component {
     }
   }
 
+
+
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -100,7 +110,7 @@ export default class Results extends React.Component {
         <View style={{ backgroundColor: 'transparent', width, marginTop: 30, marginLeft: 30, height: 180 }}>
           <Text style={{ color: 'white', fontSize: 60, }}>
             {this.props.navigation.state.params.DayNum}
-            <Text style={{ color: 'white', fontSize: 30, }}>  Monday</Text>
+            <Text style={{ color: 'white', fontSize: 30, }}>  {this.state.DayToShow}</Text>
           </Text>
           <Text style={{ color: 'white', fontSize: 30, marginLeft: 13 }}>{this.props.navigation.state.params.Department.name}</Text>
         </View>
