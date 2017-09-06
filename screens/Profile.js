@@ -84,52 +84,63 @@ export default class Profile extends React.Component {
       return (
         <View>
           {/* Name */}
-            <View style={{ flex: 1, flexDirection: 'row', marginHorizontal: 20, alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{ flex: 1, flexDirection: 'row', marginHorizontal: 15, alignItems: 'center', justifyContent: 'center'}}>
               <View style={{ flex: .3 }}>
-                <Image style={{ height: 40, width: 40, }} source={require('../assets/img/user.png')} />
+                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/user.png')} />
               </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 20, color: '#1e537d', fontWeight: 'bold', fontSize: 20 }}>
+              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>
                 {this.state.name}</Text>
             </View>
 
+            {/* position */}
+              <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center'}}>
+                <View style={{ flex: .3 }}>
+                  <Image style={{ height: 25, width: 25, }} source={require('../assets/img/b-card.png')} />
+                </View>
+                <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>
+                  {this.state.position}</Text>
+              </View>
+
+
+          {/* pager */}
+            <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center',}}>
+              <View style={{ flex: .3 }}>
+                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/pager.png')} />
+              </View>
+              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>
+                {this.state.pager}
+              </Text>
+            </View>
 
           {/* phone */}
-            <View style={{ flex: 1, flexDirection: 'row', marginTop: 30, marginHorizontal: 20, alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center'}}>
               <View style={{ flex: .3 }}>
-                <Image style={{ height: 40, width: 40, }} source={require('../assets/img/phone.png')} />
+                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/phone-01.png')} />
               </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 20, color: '#1e537d', fontWeight: 'bold', fontSize: 20 }}>{this.state.phone}</Text>
+              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>{this.state.phone}</Text>
+            </View>
+
+
+          {/* extension */}
+            <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center'}}>
+              <View style={{ flex: .3 }}>
+                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/phone.png')} />
+              </View>
+              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>{this.state.extension}</Text>
             </View>
 
 
           {/* email */}
-            <View style={{ flex: 1, flexDirection: 'row', marginTop: 30, marginHorizontal: 20, alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{ flex: 1, flexDirection: 'row', marginTop: 15, marginHorizontal: 15, alignItems: 'center', justifyContent: 'center', marginBottom: 30}}>
               <View style={{ flex: .3 }}>
-                <Image style={{ height: 40, width: 40, }} source={require('../assets/img/email.png')} />
+                <Image style={{ height: 25, width: 25, }} source={require('../assets/img/email.png')} />
               </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 20, color: '#1e537d', fontWeight: 'bold', fontSize: 20 }}>{this.state.email}</Text>
+              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 10, color: '#1e537d', fontWeight: 'bold', fontSize: 15 }}>{this.state.email}</Text>
             </View>
 
 
-          {/* position */}
-            <View style={{ flex: 1, flexDirection: 'row', marginTop: 30, marginHorizontal: 20, alignItems: 'center', justifyContent: 'center'}}>
-              <View style={{ flex: .3 }}>
-                <Image style={{ height: 40, width: 40, }} source={require('../assets/img/position.png')} />
-              </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 20, color: '#1e537d', fontWeight: 'bold', fontSize: 20 }}>
-                {this.state.position}</Text>
-            </View>
 
 
-          {/* pager */}
-            <View style={{ flex: 1, flexDirection: 'row', marginTop: 30, marginHorizontal: 20, alignItems: 'center', justifyContent: 'center', marginBottom: 30}}>
-              <View style={{ flex: .3 }}>
-                <Image style={{ height: 40, width: 40, }} source={require('../assets/img/pager.png')} />
-              </View>
-              <Text style={{ flex: 1.5, backgroundColor: 'transparent', marginLeft: 20, color: '#1e537d', fontWeight: 'bold', fontSize: 20 }}>
-                {this.state.pager}
-              </Text>
-            </View>
         </View>
       )
     }
@@ -146,7 +157,7 @@ export default class Profile extends React.Component {
       <ScrollView style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
         <Image source={require('../assets/img/bg-icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
 
-        <Image source={require('../assets/img/header.png')} style={{ width, height: 200, position: 'absolute'}} />
+        <Image source={require('../assets/img/cover.png')} style={{ width, height: 200, position: 'absolute'}} />
         <View style={{ backgroundColor: 'transparent', width, height: 350, alignItems: 'center' }}>
           <Image source={require('../assets/img/avatar.png')} style={{ width: 200, height: 200, position: 'absolute', marginTop: 100}} />
         </View>
