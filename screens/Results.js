@@ -32,7 +32,9 @@ export default class Results extends React.Component {
     .then((res) => res.json())
     .then((resJson) => {
       resJson.map((doc) => {
-        this.data.push(doc)
+        if (doc.title != '') {
+          this.data.push(doc)
+        }
       })
     })
     .then(() => {
@@ -66,14 +68,14 @@ export default class Results extends React.Component {
         return '...'
     } else {
       let title = <Text>{rowData.title}</Text>
-      let img = <Image source={{uri: rowData.image}} style={{ width: 50, height: 50,}}/>
+      let img = <Image source={{uri: rowData.image}} style={{ flex: 1, alignSelf: 'stretch', width: undefined, height: undefined, resizeMode: 'contain' }}/>
       let desc = <Text>{rowData.description}</Text>
         return (
           <TouchableOpacity
             onPress={() => {
               this.props.navigation.navigate('Profile', {id: rowData.id})
             }}
-            style={{ flex: 1, width, height: 50, flexDirection: 'row'}}>
+            style={{ flex: 1, height: 50, flexDirection: 'row'}}>
             <View style={{ flex: 1 }}>
               <Text style={{backgroundColor: 'transparent', fontWeight: 'bold', fontSize: 15}}>{title}</Text>
               <Text style={{backgroundColor: 'transparent', fontSize: 14}}>{desc}</Text>
@@ -110,7 +112,7 @@ export default class Results extends React.Component {
         circleColor='#1e537d'
         lineColor='#1e537d'
         lineWidth={4}
-        timeContainerStyle={{minWidth:65,}}
+        timeContainerStyle={{minWidth:75,}}
         timeStyle={{borderWidth: 2, borderColor: '#1e537d', color: '#1e537d', fontWeight: 'bold', borderRadius: 10, padding: 5, textAlign: 'center'}}
         renderDetail={this.renderDetail}
         data={this.data} />
