@@ -41,6 +41,21 @@ export default class Contact extends React.Component {
     this.setState({ size: { width: layout.width, height: layout.height } });
   }
 
+  _sendEmail = () => {
+    console.log(this.state.name)
+    console.log(this.state.email)
+    console.log(this.state.message)
+    fetch(`http://oncall-admin.herokuapp.com/api/mail?name=${this.state.name}&email=${this.state.email}&message=${this.state.message}`)
+      .then(res => res.json())
+      .then((resJson) => {
+        console.log(resJson);
+      })
+      .then(() => {
+        Alert.alert('Thanks ' + this.state.name, 'we will responde as soon as possible')
+        this.props.navigation.navigate('Home')
+      })
+  }
+
   static navigationOptions = {
     title: 'Contact us'
   };
@@ -66,12 +81,10 @@ export default class Contact extends React.Component {
              <TextInput style={{ borderColor: '#11284b', borderWidth: 2, marginVertical: 7, borderRadius: 20, width: '100%', textAlign: 'center', height: 100, fontWeight: 'bold', color: '#11284b' }}
                onChangeText={(message) => this.setState({ message })}
                placeholder="message"
+               multiline={true}
                underlineColorAndroid="transparent"/>
              <TouchableOpacity
-               onPress={ () => {
-                 Alert.alert('Thanks ' + this.state.name, 'we will responde as soon as possible')
-                 navigate('Home')
-               }}
+               onPress={ this._sendEmail }
                 style={{ }}>
                <Text style={{ backgroundColor: '#11284b', borderRadius: 20, color: 'white', fontWeight: 'bold', textAlign: 'center', padding: 18 }}>Send</Text>
              </TouchableOpacity>
