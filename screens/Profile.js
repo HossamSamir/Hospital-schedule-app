@@ -146,7 +146,7 @@ export default class Profile extends React.Component {
         <Image source={require('../assets/img/bg-icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
 
         <Image source={require('../assets/img/cover.png')} style={{ width, height: 200, position: 'absolute'}} />
-        <View style={{ backgroundColor: 'transparent', width, height: 350, alignItems: 'center' }}>
+        <View style={{ backgroundColor: 'transparent', width, height: 350, alignItems: 'center', marginBottom: -50 }}>
           <Image source={require('../assets/img/avatar.png')} style={{ width: 200, height: 200, position: 'absolute', marginTop: 100}} />
         </View>
 

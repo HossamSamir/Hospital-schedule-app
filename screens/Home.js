@@ -46,13 +46,11 @@ export default class Home extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, backgroundColor: 'white'}} onLayout={this._onLayoutDidChange}>
-        <Image source={require('../assets/img/bg-icons.png')} style={{ width, height, position: 'absolute' }} />
+        <Image source={require('../assets/img/bg-logo.png')} style={{ width, height, position: 'absolute' }} />
 
         <View style={{ flex: .8, alignItems: 'center', justifyContent: 'center' }}>
             <Image style={{ flex: .2 }} source={require('../assets/img/illustration.png')} style={{ width, height: 200, resizeMode: 'contain', marginTop: -23}} />
-            <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', marginTop: 40, color: '#11284b' }}>you are too busy to think about schedules, Relax and let us handle it for you :)</Text>
         </View>
-
         <View style={{ flex: 1, flexDirection: 'row',}}>
           <TouchableOpacity
             onPress={() => {
@@ -69,7 +67,7 @@ export default class Home extends React.Component {
             borderWidth: 1,
             borderRadius: 10
            }}>
-           <Image source={require('../assets/img/about.png')} style={{ flex: 1, alignSelf: 'stretch', width: undefined, height: undefined, margin: 50, marginBottom: 0, resizeMode: 'contain'}} />
+           <Image source={require('../assets/img/about.png')} style={{ flex: 1, alignSelf: 'stretch', width: undefined, height: undefined, margin: 60, marginBottom: 0, resizeMode: 'contain'}} />
            <Text style={{flex: 1, marginTop: 10, fontSize: 18, fontWeight: 'bold', color: '#1e537d'}}>About us</Text>
          </TouchableOpacity>
 
@@ -88,7 +86,7 @@ export default class Home extends React.Component {
            borderWidth: 1,
            borderRadius: 10
           }}>
-          <Image source={require('../assets/img/contact-us.png')} style={{ flex: 1, alignSelf: 'stretch', width: undefined, height: undefined, margin: 50, marginBottom: 0, resizeMode: 'contain'}} />
+          <Image source={require('../assets/img/contact-us.png')} style={{ flex: 1, alignSelf: 'stretch', width: undefined, height: undefined, margin: 60, marginBottom: 0, resizeMode: 'contain'}} />
           <Text style={{flex: 1, marginTop: 10, fontSize: 18, fontWeight: 'bold', color: '#1e537d'}}>Contact us</Text>
         </TouchableOpacity>
       </View>

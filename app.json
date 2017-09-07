@@ -1,15 +1,16 @@
 {
   "expo": {
-    "name": "oncall",
+    "name": "OnCall",
     "description": "No description",
-    "slug": "oncall",
+    "slug": "OnCall",
     "privacy": "public",
     "sdkVersion": "20.0.0",
     "ios": {
-      "bundleIdentifier": "com.HossamSamir.oncall"
+      "bundleIdentifier": "com.HossamSamir.OnCall"
     },
     "android": {
-      "package": "com.HossamSamir.oncall"
+      "package": "com.HossamSamir.OnCall",
+      "permissions": [ "MANAGE_DOCUMENTS", "READ_EXTERNAL_STORAGE", "READ_INTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE" ],
     },
     "version": "1.0.0",
     "orientation": "portrait",
