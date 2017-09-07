@@ -11,7 +11,8 @@ import {
   Dimensions,
   Modal,
   TextInput,
-  Alert
+  Alert,
+  ActivityIndicator
  } from 'react-native';
 import {
   StackNavigator,
@@ -29,6 +30,7 @@ export default class Contact extends React.Component {
       name: '',
       email: '',
       message: '',
+      sending: false
     };
   }
 
@@ -42,6 +44,7 @@ export default class Contact extends React.Component {
   }
 
   _sendEmail = () => {
+    this.setState({sending: true})
     console.log(this.state.name)
     console.log(this.state.email)
     console.log(this.state.message)
@@ -54,6 +57,14 @@ export default class Contact extends React.Component {
         Alert.alert('Thanks ' + this.state.name, 'we will responde as soon as possible')
         this.props.navigation.navigate('Home')
       })
+  }
+
+  renderBtn() {
+    if (this.state.sending == false) {
+      return <Text style={{ backgroundColor: '#11284b', borderRadius: 20, color: 'white', fontWeight: 'bold', textAlign: 'center', padding: 18 }}>Send</Text>
+    } else {
+        return <ActivityIndicator size='large' />
+    }
   }
 
   static navigationOptions = {
@@ -86,7 +97,7 @@ export default class Contact extends React.Component {
              <TouchableOpacity
                onPress={ this._sendEmail }
                 style={{ }}>
-               <Text style={{ backgroundColor: '#11284b', borderRadius: 20, color: 'white', fontWeight: 'bold', textAlign: 'center', padding: 18 }}>Send</Text>
+               { this.renderBtn() }
              </TouchableOpacity>
            </ScrollView>
 
