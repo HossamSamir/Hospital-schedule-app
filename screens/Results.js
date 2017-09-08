@@ -50,7 +50,6 @@ export default class Results extends React.Component {
 
   _GoNext = () => {
     this.setState({data: []})
-
     fetch(
       `https://oncall-admin.herokuapp.com/api/forward?section_id=${this.props.navigation.state.params.Department.id}&hospital_id=${this.props.navigation.state.params.Hospital.id}&date=${this.state.Date}`)
     .then((res) => res.json())
@@ -64,6 +63,27 @@ export default class Results extends React.Component {
     })
     .then(() => {
       this.setState({doneFetching: true, DayNum: this.state.DayNum+1})
+    })
+    .then(() => {
+      this.getDayName()
+    })
+  }
+
+  _GoPrev = () => {
+    this.setState({data: []})
+    fetch(
+      `https://oncall-admin.herokuapp.com/api/backward?section_id=${this.props.navigation.state.params.Department.id}&hospital_id=${this.props.navigation.state.params.Hospital.id}&date=${this.state.Date}`)
+    .then((res) => res.json())
+    .then((resJson) => {
+      resJson.map((doc) => {
+        if (doc.title != '') {
+          this.state.data.push(doc)
+          this.setState({Date: doc.date})
+        }
+      })
+    })
+    .then(() => {
+      this.setState({doneFetching: true, DayNum: this.state.DayNum-1})
     })
     .then(() => {
       this.getDayName()
