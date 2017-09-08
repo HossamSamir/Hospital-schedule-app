@@ -99,7 +99,6 @@ export default class Home extends React.Component {
           <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1e537d', margin: 5 }}>Contact us</Text>
         </TouchableOpacity>
       </View>
-      <View style={{ flex: .3 }}></View>
 
         <TouchableHighlight
           onPress={ () => {

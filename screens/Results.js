@@ -9,7 +9,8 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
-  Alert
+  Alert,
+  ActivityIndicator
  } from 'react-native';
 import {
   StackNavigator,
@@ -38,7 +39,7 @@ export default class Results extends React.Component {
     .then((res) => res.json())
     .then((resJson) => {
       resJson.map((doc) => {
-        if (doc.title != '') {
+        if (doc.title != undefined) {
           this.state.data.push(doc)
         }
       })
@@ -48,21 +49,22 @@ export default class Results extends React.Component {
     })
   }
 
+
   _GoNext = () => {
-    this.setState({data: []})
+    this.setState({data: [], doneFetching: false})
     fetch(
       `https://oncall-admin.herokuapp.com/api/forward?section_id=${this.props.navigation.state.params.Department.id}&hospital_id=${this.props.navigation.state.params.Hospital.id}&date=${this.state.Date}`)
     .then((res) => res.json())
     .then((resJson) => {
       resJson.map((doc) => {
-        if (doc.title != '') {
+        this.setState({Date: doc.date, DayNum: doc.day_number})
+        if (doc.title != undefined) {
           this.state.data.push(doc)
-          this.setState({Date: doc.date})
         }
       })
     })
     .then(() => {
-      this.setState({doneFetching: true, DayNum: this.state.DayNum+1})
+      this.setState({doneFetching: true,})
     })
     .then(() => {
       this.getDayName()
@@ -76,14 +78,14 @@ export default class Results extends React.Component {
     .then((res) => res.json())
     .then((resJson) => {
       resJson.map((doc) => {
-        if (doc.title != '') {
+        this.setState({Date: doc.date, DayNum: doc.day_number})
+        if (doc.title != undefined) {
           this.state.data.push(doc)
-          this.setState({Date: doc.date})
         }
       })
     })
     .then(() => {
-      this.setState({doneFetching: true, DayNum: this.state.DayNum-1})
+      this.setState({doneFetching: true,})
     })
     .then(() => {
       this.getDayName()
@@ -115,9 +117,16 @@ export default class Results extends React.Component {
   };
 
 
+
+
   renderDetail(rowData, sectionID, rowID) {
     if (this.state.doneFetching == false) {
-        return '...'
+        return (
+          <View>
+            <Text>loaddddingingingin</Text>
+            <Text>loaddddingingingin</Text>
+          </View>
+        )
     } else {
       let title = <Text>{rowData.title}</Text>
       let img = <Image source={{uri: rowData.image}} style={{ flex: 1, alignSelf: 'stretch', width: undefined, height: undefined, resizeMode: 'contain' }}/>
@@ -172,6 +181,7 @@ export default class Results extends React.Component {
       </View>
       </View>
 
+
       <Timeline
         innerCircle={'dot'}
         dotColor='#fcdb6d'
@@ -182,7 +192,6 @@ export default class Results extends React.Component {
         timeStyle={{borderWidth: 2, borderColor: '#1e537d', color: '#1e537d', fontWeight: 'bold', borderRadius: 10, padding: 5, textAlign: 'center'}}
         renderDetail={this.renderDetail}
         data={this.state.data} />
-
       </View>
     );
   }
