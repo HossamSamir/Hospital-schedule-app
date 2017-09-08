@@ -16,7 +16,7 @@ import {
   StackNavigator,
 } from 'react-navigation';
 import Timeline from 'react-native-timeline-listview';
-import { EvilIcons, Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -156,13 +156,16 @@ export default class Results extends React.Component {
 
         <Image source={require('../assets/img/bg-icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
 
-      <View style={{ }}>
-        <Image source={require('../assets/img/results.png')} style={{ width, height: 200, position: 'absolute'}} />
+      <View style={{ marginBottom: 20 }}>
+        <Image source={require('../assets/img/results.png')} style={{ width: '115%', height: 200, position: 'absolute'}} />
         <View style={{ flexDirection: 'row', backgroundColor: 'transparent', width, height: 200 }}>
 
           <View style={{ flex: .2, justifyContent: 'center', alignItems: 'center' }}>
             <TouchableOpacity onPress={ this._GoPrev }>
-              <Ionicons name='ios-arrow-dropleft-circle' size={50} color='#c3c3c3' style={{ backgroundColor: 'transparent',  }} />
+              <Ionicons name='ios-arrow-dropleft-circle' size={50} color='white' style={{ backgroundColor: 'transparent', shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.5,
+              shadowRadius: 2,  }} />
             </TouchableOpacity>
         </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -174,7 +177,10 @@ export default class Results extends React.Component {
           </View>
           <View style={{ flex: .2, justifyContent: 'center', alignItems: 'center' }}>
             <TouchableOpacity onPress={ this._GoNext }>
-              <Ionicons name='ios-arrow-dropright-circle' size={50} color='#c3c3c3' style={{ backgroundColor: 'transparent',}} />
+              <Ionicons name='ios-arrow-dropright-circle' size={50} color='white' style={{ backgroundColor: 'transparent', shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.5,
+              shadowRadius: 2,}} />
             </TouchableOpacity>
         </View>
 
