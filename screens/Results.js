@@ -40,6 +40,7 @@ export default class Results extends React.Component {
     .then((resJson) => {
       resJson.map((doc) => {
         if (doc.title != undefined) {
+          console.log(doc)
           this.state.data.push(doc)
         }
       })

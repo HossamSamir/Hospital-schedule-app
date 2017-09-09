@@ -6,29 +6,27 @@
     "privacy": "public",
     "sdkVersion": "20.0.0",
     "ios": {
-      "bundleIdentifier": "com.HossamSamir.OnCall"
+      "bundleIdentifier": "com.HossamSamir.OnCall",
+      "supportsTablet": true,
     },
     "android": {
       "package": "com.HossamSamir.OnCall",
       "permissions": [ "MANAGE_DOCUMENTS", "READ_EXTERNAL_STORAGE", "READ_INTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE" ],
     },
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "icon": "./assets/icons/app-icon.png",
     "notification": {
       "icon": "./assets/icons/notification-icon.png",
-      "color": "#000000"
+      "color": "#000000",
     },
     "loading": {
       "icon": "./assets/icons/loading-icon.png",
-      "hideExponentText": true
+      "hideExponentText": true,
     },
     "packagerOpts": {
-      "assetExts": ["ttf"]
+      "assetExts": ["ttf"],
     },
-    "ios": {
-      "supportsTablet": true
-    }
   }
 }
