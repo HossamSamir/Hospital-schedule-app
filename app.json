@@ -12,8 +12,9 @@
     "android": {
       "package": "com.HossamSamir.OnCall",
       "permissions": [ "MANAGE_DOCUMENTS", "READ_EXTERNAL_STORAGE", "READ_INTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE" ],
+      "versionCode": 2
     },
-    "version": "2.0.0",
+    "version": "2",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "icon": "./assets/icons/app-icon.png",
