@@ -17,7 +17,7 @@ export default class About extends React.Component {
       size: { width, height },
     };
   }
-  _onLayoutDidChange = function() {
+  _onLayoutDidChange = (e) => {
     const layout = e.nativeEvent.layout;
     this.setState({ size: { width: layout.width, height: layout.height } });
   }
