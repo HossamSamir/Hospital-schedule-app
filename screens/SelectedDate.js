@@ -1,23 +1,14 @@
 import React from 'react';
 import {
-  StyleSheet,
-  ScrollView,
   Text,
   View,
-  Button,
   Image,
   TouchableHighlight,
   Dimensions,
-  Alert
  } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
 import {Calendar} from 'react-native-calendars';
 const { width, height } = Dimensions.get('window');
-
 export default class SelectedDate extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -27,38 +18,31 @@ export default class SelectedDate extends React.Component {
     };
     this.onDayPress = this.onDayPress.bind(this);
   }
-
   _onLayoutDidChange = (e) => {
     const layout = e.nativeEvent.layout;
     this.setState({ size: { width: layout.width, height: layout.height } });
   }
-
   _getCurrentDate = () => {
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1;
     var yyyy = today.getFullYear();
     if(dd<10)
-        dd = '0'+dd
-
+        dd = '0'+dd;
     if(mm<10)
-        mm = '0'+mm
-
+        mm = '0'+mm;
     today = yyyy + '-' + mm + '-' + dd;
     return today
   }
-
   static navigationOptions = {
     header: null
   };
-
   onDayPress(day) {
     this.setState({
       SelectedDate: day.dateString,
       DayNum: day.day
     });
   }
-
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -106,12 +90,3 @@ export default class SelectedDate extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
