@@ -45,14 +45,8 @@ export default class Contact extends React.Component {
 
   _sendEmail = () => {
     this.setState({sending: true})
-    console.log(this.state.name)
-    console.log(this.state.email)
-    console.log(this.state.message)
     fetch(`http://oncall-admin.herokuapp.com/api/mail?name=${this.state.name}&email=${this.state.email}&message=${this.state.message}`)
       .then(res => res.json())
-      .then((resJson) => {
-        console.log(resJson);
-      })
       .then(() => {
         Alert.alert('Thanks ' + this.state.name, 'we will responde as soon as possible')
         this.props.navigation.navigate('Home')

@@ -32,12 +32,9 @@ export default class Profile extends React.Component {
     this.fetchProfie();
   }
   fetchProfie() {
-    console.log(this.props.navigation.state.params.id);
     fetch(`https://oncall-admin.herokuapp.com/api/record_by_id?record_id=${this.props.navigation.state.params.id}`)
     .then((res) => res.json())
     .then((resJson) => {
-      console.log(resJson[0].title);
-      console.log(resJson[0].email);
       this.setState({
         name: resJson[0].title,
         phone: resJson[0].description,
