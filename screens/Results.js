@@ -160,7 +160,7 @@ export default class Results extends React.Component {
         circleColor='#1e537d'
         lineColor='#1e537d'
         lineWidth={4}
-        timeContainerStyle={{minWidth:75,}}
+        timeContainerStyle={{minWidth:90,}}
         timeStyle={{borderWidth: 2, borderColor: '#1e537d', color: '#1e537d', fontWeight: 'bold', borderRadius: 10, padding: 5, textAlign: 'center'}}
         renderDetail={this.renderDetail}
         data={this.state.data} />
