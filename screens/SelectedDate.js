@@ -14,7 +14,7 @@ export default class SelectedDate extends React.Component {
     this.state = {
       size: { width, height },
       SelectedDate: this._getCurrentDate(),
-      DayNum: null
+      DayNum: this._getCurrentDay()
     };
     this.onDayPress = this.onDayPress.bind(this);
   }
@@ -33,6 +33,11 @@ export default class SelectedDate extends React.Component {
         mm = '0'+mm;
     today = yyyy + '-' + mm + '-' + dd;
     return today
+  }
+  _getCurrentDay = () => {
+    var today = new Date();
+    var dd = today.getDate();
+    return dd
   }
   static navigationOptions = {
     header: null
