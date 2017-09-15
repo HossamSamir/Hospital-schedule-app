@@ -1,15 +1,11 @@
 import React from 'react';
 import {
-  StyleSheet,
   ScrollView,
   Text,
-  TouchableHighlight,
   View,
-  Button,
   Image,
   TouchableOpacity,
   Dimensions,
-  Modal,
   TextInput,
   Alert,
   ActivityIndicator
@@ -17,32 +13,22 @@ import {
 import {
   StackNavigator,
 } from 'react-navigation';
-
 const { width, height } = Dimensions.get('window');
-
 export default class Contact extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       size: { width, height },
-      modalVisible: false,
       name: '',
       email: '',
       message: '',
       sending: false
     };
   }
-
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
-
   _onLayoutDidChange = (e) => {
     const layout = e.nativeEvent.layout;
     this.setState({ size: { width: layout.width, height: layout.height } });
   }
-
   _sendEmail = () => {
     this.setState({sending: true})
     fetch(`http://oncall-admin.herokuapp.com/api/mail?name=${this.state.name}&email=${this.state.email}&message=${this.state.message}`)
@@ -52,7 +38,6 @@ export default class Contact extends React.Component {
         this.props.navigation.navigate('Home')
       })
   }
-
   renderBtn() {
     if (this.state.sending == false) {
       return <Text style={{ backgroundColor: '#11284b', borderRadius: 20, color: 'white', fontWeight: 'bold', textAlign: 'center', padding: 18 }}>Send</Text>
@@ -60,20 +45,15 @@ export default class Contact extends React.Component {
         return <ActivityIndicator size='large' />
     }
   }
-
   static navigationOptions = {
     title: 'Contact us'
   };
-
-
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, marginTop: 20 }} onLayout={this._onLayoutDidChange}>
         <Image source={require('../assets/img/bg-icons.png')} style={{ width, height, position: 'absolute' }} />
-
            <ScrollView style={{ marginHorizontal: 10 }}>
-
              <TextInput style={{ borderColor: '#11284b', borderWidth: 2, marginVertical: 7, borderRadius: 20, width: '100%', textAlign: 'center', height: 50, fontWeight: 'bold', color: '#11284b'}}
                onChangeText={(name) => this.setState({ name })}
                placeholder="Name"
@@ -94,19 +74,7 @@ export default class Contact extends React.Component {
                { this.renderBtn() }
              </TouchableOpacity>
            </ScrollView>
-
-
-
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
