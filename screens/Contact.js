@@ -10,9 +10,6 @@ import {
   Alert,
   ActivityIndicator
  } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
 const { width, height } = Dimensions.get('window');
 export default class Contact extends React.Component {
   constructor(props) {

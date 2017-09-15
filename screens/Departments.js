@@ -5,19 +5,11 @@ import {
   Text,
   TouchableHighlight,
   View,
-  Button,
   Image,
-  TouchableOpacity,
   Dimensions,
  } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
-
 const { width, height } = Dimensions.get('window');
-
 export default class Departments extends React.Component {
-
   componentDidMount() {
     this.fetchDepartments();
   }
@@ -42,16 +34,13 @@ export default class Departments extends React.Component {
       doneFetching: false
     };
   }
-
   _onLayoutDidChange = (e) => {
     const layout = e.nativeEvent.layout;
     this.setState({ size: { width: layout.width, height: layout.height } });
   }
-
   static navigationOptions = {
     header: null
   };
-
   _Departments = () => {
     if (this.state.doneFetching == false) {
       return (
@@ -86,8 +75,6 @@ export default class Departments extends React.Component {
       })
     }
   }
-
-
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -102,9 +89,7 @@ export default class Departments extends React.Component {
               <Text style={{ fontSize: 28, color: '#11284b', fontWeight: 'bold' }}>Choose A Department</Text>
               <Text style={{ color: '#11284b', opacity: .8, fontWeight: 'bold' }}>Scroll down for more</Text>
               <ScrollView style={{ flex: 1, marginTop: 30, backgroundColor: 'transparent', width }}>
-
                 {this._Departments()}
-
               </ScrollView>
             </View>
           </View>
@@ -113,12 +98,3 @@ export default class Departments extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

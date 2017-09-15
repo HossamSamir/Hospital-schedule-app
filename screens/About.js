@@ -6,9 +6,6 @@ import {
   Image,
   Dimensions,
  } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
 const { width, height } = Dimensions.get('window');
 export default class About extends React.Component {
   constructor(props) {
