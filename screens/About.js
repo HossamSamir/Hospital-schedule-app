@@ -22,7 +22,6 @@ export default class About extends React.Component {
     title: 'About us'
   };
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
         <Image source={require('../assets/img/bg-icons.png')} style={{ width, height, position: 'absolute' }} />

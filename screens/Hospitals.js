@@ -1,23 +1,14 @@
 import React from 'react';
 import {
-  StyleSheet,
   ScrollView,
   Text,
   TouchableHighlight,
   View,
-  Button,
   Image,
-  TouchableOpacity,
   Dimensions,
  } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
-
 const { width, height } = Dimensions.get('window');
-
 export default class Hospitals extends React.Component {
-
   componentDidMount() {
     this.fetchHospitals();
   }
@@ -42,16 +33,13 @@ export default class Hospitals extends React.Component {
       doneFetching: false
     };
   }
-
   _onLayoutDidChange = (e) => {
     const layout = e.nativeEvent.layout;
     this.setState({ size: { width: layout.width, height: layout.height } });
   }
-
   static navigationOptions = {
     header: null
   };
-
   _Hopitals = () => {
     if (this.state.doneFetching == false) {
       return (
@@ -86,10 +74,7 @@ export default class Hospitals extends React.Component {
       })
     }
   }
-
-
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, marginTop: 50 }} onLayout={this._onLayoutDidChange}>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -113,12 +98,3 @@ export default class Hospitals extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
