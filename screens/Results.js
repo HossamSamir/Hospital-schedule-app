@@ -1,38 +1,24 @@
 import React from 'react';
 import {
-  StyleSheet,
-  ScrollView,
   Text,
-  TouchableHighlight,
   View,
-  Button,
   Image,
   TouchableOpacity,
   Dimensions,
-  Alert,
-  ActivityIndicator
  } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
 import Timeline from 'react-native-timeline-listview';
 import { Ionicons } from '@expo/vector-icons';
-
 const { width, height } = Dimensions.get('window');
-
 export default class Results extends React.Component {
-
   componentDidMount() {
     this.fetchDocs();
     this.getDayName();
   }
-
   getDayName() {
     var d = new Date(this.state.Date);
     var dayName = this.state.week[d.getDay()];
     this.setState({ DayToShow: dayName })
   }
-
   fetchDocs() {
     fetch(
       `https://oncall-admin.herokuapp.com/api/search?section_id=${this.props.navigation.state.params.Department.id}&hospital_id=${this.props.navigation.state.params.Hospital.id}&date=${this.props.navigation.state.params.Date}`)
@@ -48,8 +34,6 @@ export default class Results extends React.Component {
       this.setState({doneFetching: true})
     })
   }
-
-
   _GoNext = () => {
     this.setState({data: [], doneFetching: false})
     fetch(
@@ -70,7 +54,6 @@ export default class Results extends React.Component {
       this.getDayName()
     })
   }
-
   _GoPrev = () => {
     this.setState({data: []})
     fetch(
@@ -91,7 +74,6 @@ export default class Results extends React.Component {
       this.getDayName()
     })
   }
-
   constructor(props) {
     super(props);
     this.renderDetail = this.renderDetail.bind(this)
@@ -106,26 +88,17 @@ export default class Results extends React.Component {
       Date: this.props.navigation.state.params.Date
     };
   }
-
   _onLayoutDidChange = (e) => {
     const layout = e.nativeEvent.layout;
     this.setState({ size: { width: layout.width, height: layout.height } });
   }
-
   static navigationOptions = {
     header: null
   };
-
-
-
-
   renderDetail(rowData, sectionID, rowID) {
     if (this.state.doneFetching == false) {
         return (
-          <View>
-            <Text>loaddddingingingin</Text>
-            <Text>loaddddingingingin</Text>
-          </View>
+            <Text>LOADING...</Text>
         )
     } else {
       let title = <Text>{rowData.title}</Text>
@@ -148,14 +121,10 @@ export default class Results extends React.Component {
       )
     }
   }
-
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
-
         <Image source={require('../assets/img/bg-icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
-
       <View style={{ marginBottom: 20 }}>
         <Image source={require('../assets/img/results.png')} style={{ width: '115%', height: 200, position: 'absolute'}} />
         <View style={{ flexDirection: 'row', backgroundColor: 'transparent', width, height: 200 }}>
@@ -183,11 +152,8 @@ export default class Results extends React.Component {
               shadowRadius: 2,}} />
             </TouchableOpacity>
         </View>
-
       </View>
       </View>
-
-
       <Timeline
         innerCircle={'dot'}
         dotColor='#fcdb6d'
@@ -202,12 +168,3 @@ export default class Results extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
