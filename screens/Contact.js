@@ -50,7 +50,7 @@ export default class Contact extends React.Component {
     return (
       <View style={{ flex: 1, marginTop: 20 }} onLayout={this._onLayoutDidChange}>
         <Image source={require('../assets/img/bg-icons.png')} style={{ width, height, position: 'absolute' }} />
-           <ScrollView style={{ marginHorizontal: 10 }}>
+           <View style={{ marginHorizontal: 10 }}>
              <TextInput style={{ borderColor: '#11284b', borderWidth: 2, marginVertical: 7, borderRadius: 20, width: '100%', textAlign: 'center', height: 50, fontWeight: 'bold', color: '#11284b'}}
                onChangeText={(name) => this.setState({ name })}
                placeholder="Name"
@@ -70,7 +70,7 @@ export default class Contact extends React.Component {
                 style={{ }}>
                { this.renderBtn() }
              </TouchableOpacity>
-           </ScrollView>
+           </View>
       </View>
     );
   }

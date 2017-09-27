@@ -16,7 +16,7 @@ export default class About extends React.Component {
       size: { width, height },
       users: [
         {
-          txt: 'OnCall is an application which provides information about doctors Oncall in hospitals and facilitates easy access to doctors in all sections of the hospital. Also it presents  details about team on duty for each day. The goal is to reduce the time to search and reduce the cost of printing and distributing the papers. The application is available on the Apple and Android stores, The download is free. This work is personal and does not belong to any organization. Fees may be charged for uploading later. To contact us send your request to join  the team or in case to add your hospital on our App , Please send  via the contact us button . do not hestiate for any question , suggestion or request .',
+          txt: 'OnCall is an application which provides information about doctors Oncall in hospitals and facilitates easy access to doctors in all sections of the hospital. Also it presents  details about team on duty for each day. The goal is to reduce the time to search and reduce the cost of printing and distributing the papers. The download is free. This work is personal and does not belong to any organization. Fees may be charged for uploading later. To contact us send your request to join  the team or in case to add your hospital on our App , Please send  via the contact us button . do not hestiate for any question , suggestion or request .',
           id: 1
         },
         {
