@@ -100,8 +100,9 @@ export default class Results extends React.Component {
     if (this.state.doneFetching == false) {
       return <ActivityIndicator size='large'/>
     } else {
-      // check if the users array is empty
-      if (this.state.data[0].title != undefined) {
+      if (this.state.data[0].title == undefined) {
+        return <Text>No Doctors added today yet.</Text>
+      } else {
         return (
           <Timeline
             innerCircle={'dot'}
