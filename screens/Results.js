@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
+  ActivityIndicator
  } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
 import { Ionicons } from '@expo/vector-icons';
@@ -95,6 +96,27 @@ export default class Results extends React.Component {
   static navigationOptions = {
     header: null
   };
+  _showLoading() {
+    if (this.state.doneFetching == false) {
+      return <ActivityIndicator size='large'/>
+    } else {
+      // check if the users array is empty
+      if (this.state.data[0].title != undefined) {
+        return (
+          <Timeline
+            innerCircle={'dot'}
+            dotColor='#fcdb6d'
+            circleColor='#1e537d'
+            lineColor='#1e537d'
+            lineWidth={4}
+            timeContainerStyle={{minWidth:90,}}
+            timeStyle={{borderWidth: 2, borderColor: '#1e537d', color: '#1e537d', fontWeight: 'bold', borderRadius: 10, padding: 5, textAlign: 'center'}}
+            renderDetail={this.renderDetail}
+            data={this.state.data} />
+        )
+      }
+    }
+  }
   renderDetail(rowData, sectionID, rowID) {
     if (this.state.doneFetching == false) {
         return (
@@ -154,16 +176,7 @@ export default class Results extends React.Component {
         </View>
       </View>
       </View>
-      <Timeline
-        innerCircle={'dot'}
-        dotColor='#fcdb6d'
-        circleColor='#1e537d'
-        lineColor='#1e537d'
-        lineWidth={4}
-        timeContainerStyle={{minWidth:90,}}
-        timeStyle={{borderWidth: 2, borderColor: '#1e537d', color: '#1e537d', fontWeight: 'bold', borderRadius: 10, padding: 5, textAlign: 'center'}}
-        renderDetail={this.renderDetail}
-        data={this.state.data} />
+      {this._showLoading()}
       </View>
     );
   }
