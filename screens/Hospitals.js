@@ -49,9 +49,6 @@ export default class Hospitals extends React.Component {
         <Text style={{ textAlign: 'center' }}>Loading...</Text>
       )
     } else {
-      console.log('============================================');
-      console.log(this.state.Hospitals);
-      console.log('============================================');
       return (
         <FlatList
           data = {this.state.Hospitals}
@@ -97,17 +94,10 @@ export default class Hospitals extends React.Component {
               <Text style={{ fontSize: 28, color: '#11284b', fontWeight: 'bold' }}>Choose A Hospital</Text>
               <Text style={{ color: '#11284b', opacity: .8, fontWeight: 'bold' }}>Scroll down for more</Text>
 
-
-
                 <List containerStyle={{flex: 1, marginTop: 30, flexDirection: 'row', borderTopWidth: 0, backgroundColor: 'transparent'}}>
                   {this._Hopitals()}
 
                 </List>
-
-
-
-
-
 
             </View>
           </View>
