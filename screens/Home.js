@@ -26,11 +26,8 @@ export default class Home extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, backgroundColor: 'white'}} onLayout={this._onLayoutDidChange}>
-        <Image source={require('../assets/img/bg-logo.png')} style={{ width, height, position: 'absolute' }} />
-        <View style={{ flex: .8, alignItems: 'center', justifyContent: 'center' }}>
-            <Image style={{ flex: .2 }} source={require('../assets/img/illustration.png')} style={{ width, height: 200, resizeMode: 'contain', marginTop: -23}} />
-        </View>
-        <View style={{ flex: .3 }}></View>
+        <Image source={require('../assets/img/bg-logo.jpg')} style={{ width, height, position: 'absolute' }} />
+        <View style={{ flex: 1 }}></View>
         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
           <TouchableOpacity
             onPress={() => {
@@ -51,7 +48,7 @@ export default class Home extends React.Component {
             borderWidth: 1,
             borderRadius: 10,
            }}>
-              <Image source={require('../assets/img/about.png')} style={{ width: 50, height: 50, margin: 5 }} />
+              <Image source={require('../assets/img/about.jpg')} style={{ width: 50, height: 50, margin: 5 }} />
              <Text style={{fontSize: 18, fontWeight: 'bold', color: '#1e537d', margin: 5}}>About us</Text>
          </TouchableOpacity>
          <TouchableOpacity
@@ -73,7 +70,7 @@ export default class Home extends React.Component {
              borderWidth: 1,
              borderRadius: 10,
           }}>
-          <Image source={require('../assets/img/contact-us.png')} style={{ width: 50, height: 50, margin: 5 }} />
+          <Image source={require('../assets/img/contact-us.jpg')} style={{ width: 50, height: 50, margin: 5 }} />
           <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1e537d', margin: 5 }}>Contact us</Text>
         </TouchableOpacity>
       </View>
