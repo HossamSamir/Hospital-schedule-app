@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
+  ActivityIndicator
  } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
 const { width, height } = Dimensions.get('window');
@@ -87,7 +88,7 @@ export default class Profile extends React.Component {
   renderData() {
     if (this.state.doneFetching == false) {
       return (
-        <Text>Loading</Text>
+        <ActivityIndicator style={{ marginTop: 20 }} size='large'/>
       )
     } else {
       return (
