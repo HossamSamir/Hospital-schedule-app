@@ -26,8 +26,12 @@ export default class Results extends React.Component {
     .then((res) => res.json())
     .then((resJson) => {
       resJson.map((doc) => {
-        if (doc.title != '') {
+        this.setState({Date: doc.date, DayNum: doc.day_number})
+        if (doc.status == true) {
+          this.setState({emptyData: false})
           this.state.data.push(doc)
+        } else {
+        this.setState({emptyData: true})
         }
       })
     })
@@ -36,15 +40,18 @@ export default class Results extends React.Component {
     })
   }
   _GoNext = () => {
-    this.setState({data: [], doneFetching: false})
+    this.setState({doneFetching: false, data: [],})
     fetch(
       `https://oncall-admin.herokuapp.com/api/forward?section_id=${this.props.navigation.state.params.Department.id}&hospital_id=${this.props.navigation.state.params.Hospital.id}&date=${this.state.Date}`)
     .then((res) => res.json())
     .then((resJson) => {
       resJson.map((doc) => {
         this.setState({Date: doc.date, DayNum: doc.day_number})
-        if (doc.title != undefined) {
+        if (doc.status == true) {
+          this.setState({emptyData: false})
           this.state.data.push(doc)
+        } else {
+        this.setState({emptyData: true})
         }
       })
     })
@@ -52,19 +59,22 @@ export default class Results extends React.Component {
       this.setState({doneFetching: true,})
     })
     .then(() => {
-      this.getDayName()
+      this.getDayName();
     })
   }
   _GoPrev = () => {
-    this.setState({data: []})
+    this.setState({doneFetching: false, data: [],})
     fetch(
       `https://oncall-admin.herokuapp.com/api/backward?section_id=${this.props.navigation.state.params.Department.id}&hospital_id=${this.props.navigation.state.params.Hospital.id}&date=${this.state.Date}`)
     .then((res) => res.json())
     .then((resJson) => {
       resJson.map((doc) => {
         this.setState({Date: doc.date, DayNum: doc.day_number})
-        if (doc.title != undefined) {
+        if (doc.status == true) {
+          this.setState({emptyData: false})
           this.state.data.push(doc)
+        } else {
+        this.setState({emptyData: true})
         }
       })
     })
@@ -72,7 +82,7 @@ export default class Results extends React.Component {
       this.setState({doneFetching: true,})
     })
     .then(() => {
-      this.getDayName()
+      this.getDayName();
     })
   }
   constructor(props) {
@@ -86,7 +96,8 @@ export default class Results extends React.Component {
       DayToShow: 'test',
       DepartmentName: this.props.navigation.state.params.Department.name,
       DayNum: this.props.navigation.state.params.DayNum,
-      Date: this.props.navigation.state.params.Date
+      Date: this.props.navigation.state.params.Date,
+      emptyData: false
     };
   }
   _onLayoutDidChange = (e) => {
@@ -100,9 +111,7 @@ export default class Results extends React.Component {
     if (this.state.doneFetching == false) {
       return <ActivityIndicator size='large'/>
     } else {
-      if (this.state.data[0].title == undefined) {
-        return <Text>No Doctors added today yet.</Text>
-      } else {
+      if (this.state.emptyData == false) {
         return (
           <Timeline
             innerCircle={'dot'}
@@ -115,6 +124,8 @@ export default class Results extends React.Component {
             renderDetail={this.renderDetail}
             data={this.state.data} />
         )
+      } else {
+        return <Text>No Doctors added for this day yet.</Text>
       }
     }
   }
