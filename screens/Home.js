@@ -25,10 +25,9 @@ export default class Home extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={{ flex: 1, backgroundColor: 'white'}} onLayout={this._onLayoutDidChange}>
-        <Image source={require('../assets/img/bg-logo.jpg')} style={{ width, height, position: 'absolute' }} />
-        <View style={{ flex: 1 }}></View>
-        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+      <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
+        <Image source={require('../assets/img/new/bg_logo.jpg')} style={{ width, height, position: 'absolute' }} />
+        <View style={{ flex: 2, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
           <TouchableOpacity
             onPress={() => {
               navigate('About')
@@ -37,7 +36,7 @@ export default class Home extends React.Component {
             flex: 1,
             backgroundColor: 'white',
             marginHorizontal: 18,
-            marginTop: 40,
+            marginTop: 300,
             shadowColor: '#000',
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.5,
@@ -48,7 +47,7 @@ export default class Home extends React.Component {
             borderWidth: 1,
             borderRadius: 10,
            }}>
-              <Image source={require('../assets/img/about.jpg')} style={{ width: 50, height: 50, margin: 5 }} />
+              <Image source={require('../assets/img/new/about.jpg')} style={{ width: 50, height: 50, margin: 5 }} />
              <Text style={{fontSize: 18, fontWeight: 'bold', color: '#1e537d', margin: 5}}>About us</Text>
          </TouchableOpacity>
          <TouchableOpacity
@@ -59,7 +58,7 @@ export default class Home extends React.Component {
              flex: 1,
              backgroundColor: 'white',
              marginHorizontal: 18,
-             marginTop: 40,
+             marginTop: 300,
              shadowColor: '#000',
              shadowOffset: { width: 0, height: 2 },
              shadowOpacity: 0.5,
@@ -70,7 +69,7 @@ export default class Home extends React.Component {
              borderWidth: 1,
              borderRadius: 10,
           }}>
-          <Image source={require('../assets/img/contact-us.jpg')} style={{ width: 50, height: 50, margin: 5 }} />
+          <Image source={require('../assets/img/new/contact_us.jpg')} style={{ width: 50, height: 50, margin: 5 }} />
           <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1e537d', margin: 5 }}>Contact us</Text>
         </TouchableOpacity>
       </View>

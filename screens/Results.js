@@ -158,9 +158,9 @@ export default class Results extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
-        <Image source={require('../assets/img/bg-icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
+        <Image source={require('../assets/img/new/bg_icons.png')} style={{ width, height: height, position: 'absolute' }} />
       <View style={{ marginBottom: 20 }}>
-        <Image source={require('../assets/img/results.png')} style={{ width: '115%', height: 200, position: 'absolute'}} />
+        <Image source={require('../assets/img/new/results.png')} style={{ width: '100%', height: 200, position: 'absolute'}} />
         <View style={{ flexDirection: 'row', backgroundColor: 'transparent', width, height: 200 }}>
 
           <View style={{ flex: .2, justifyContent: 'center', alignItems: 'center' }}>

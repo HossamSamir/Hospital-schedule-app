@@ -48,7 +48,7 @@ export default class Contact extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, marginTop: 20 }} onLayout={this._onLayoutDidChange}>
-        <Image source={require('../assets/img/bg-icons.png')} style={{ width, height, position: 'absolute' }} />
+        <Image source={require('../assets/img/new/bg_icons.png')} style={{ width, height, position: 'absolute' }} />
            <View style={{ marginHorizontal: 10 }}>
              <TextInput style={{ borderColor: '#11284b', borderWidth: 2, marginVertical: 7, borderRadius: 20, width: '100%', textAlign: 'center', height: 50, fontWeight: 'bold', color: '#11284b'}}
                onChangeText={(name) => this.setState({ name })}

@@ -53,22 +53,22 @@ export default class Profile extends React.Component {
   chooseImg(x) {
     switch (x) {
       case 'name':
-          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/name.png')} />
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/new/name.png')} />
         break;
       case 'position':
-          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/position.png')} />
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/new/position.png')} />
         break;
       case 'pager':
-          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/pager.png')} />
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/new/pager.png')} />
         break;
       case 'phone':
-          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/phone.png')} />
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/new/phone.png')} />
         break;
       case 'extension':
-          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/extension.png')} />
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/new/extension.png')} />
         break;
       case 'email':
-          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/email.png')} />
+          return <Image style={{ height: 25, width: 25, }} source={require('../assets/img/new/email.png')} />
         break;
     }
   }
@@ -109,10 +109,10 @@ export default class Profile extends React.Component {
   render() {
     return (
       <ScrollView style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
-        <Image source={require('../assets/img/bg-icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
-        <Image source={require('../assets/img/cover.png')} style={{ width, height: 200, position: 'absolute'}} />
+        <Image source={require('../assets/img/new/bg_icons.png')} style={{ width: width, height: height, position: 'absolute' }} />
+        <Image source={require('../assets/img/new/cover.png')} style={{ width, height: 200, position: 'absolute'}} />
         <View style={{ backgroundColor: 'transparent', width, height: 350, alignItems: 'center', marginBottom: -50 }}>
-          <Image source={require('../assets/img/avatar.png')} style={{ width: 200, height: 200, position: 'absolute', marginTop: 100}} />
+          <Image source={require('../assets/img/new/avatar.png')} style={{ width: 200, height: 200, position: 'absolute', marginTop: 100}} />
         </View>
         { this.renderData() }
     </ScrollView>

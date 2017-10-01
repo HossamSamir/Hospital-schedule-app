@@ -39,7 +39,7 @@ export default class About extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, }} onLayout={this._onLayoutDidChange}>
-        <Image source={require('../assets/img/bg-icons.jpg')} style={{ width, height, position: 'absolute' }} />
+        <Image source={require('../assets/img/new/bg_icons.jpg')} style={{ width, height, position: 'absolute' }} />
 
 
 

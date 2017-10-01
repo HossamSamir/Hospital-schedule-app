@@ -53,7 +53,7 @@ export default class SelectedDate extends React.Component {
     return (
       <View style={{ flex: 1, marginTop: 20 }} onLayout={this._onLayoutDidChange}>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Image source={require('../assets/img/bg.png')} style={{ width: width, height: height, position: 'absolute' }} />
+          <Image source={require('../assets/img/new/bg.png')} style={{ width: width, height: height, position: 'absolute' }} />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%', }}>
             <View style={{ flex: 1, backgroundColor: 'transparent', justifyContent: 'center', alignItems: 'center' }}>
               <Text style={{ fontSize: 28, color: '#11284b', fontWeight: 'bold' }}>Choose Date</Text>
