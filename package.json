@@ -19,8 +19,8 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^20.0.0",
-    "react": "16.0.0-alpha.12",
+    "expo": "^20.0.1",
+    "react": "16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-20.0.0.tar.gz",
     "react-native-calendars": "^1.5.8",
     "react-native-elements": "^0.17.0",
